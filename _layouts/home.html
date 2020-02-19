@@ -32,7 +32,7 @@ layout: default
         </span>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }} - {{ post.subtitle | escape }}
+            {{ post.title | escape }} {% if post.subtitle %}- {{ post.subtitle | escape }} {% endif %}
           </a>
         </h3>
         {%- if site.show_excerpts -%}
