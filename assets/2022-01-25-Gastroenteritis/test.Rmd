@@ -8,7 +8,6 @@ output:
     transition: slide
     self_contained: true
     reveal_options:
-      center: true
       slideNumber: true
       previewLinks: true
       controls: false
@@ -128,7 +127,7 @@ Epidemiologie
 
 Vorkommen
 ========================================================
-* Lebt im Enddarm von allen Warmblütern
+* E.Coli lebt im Enddarm von vielen Warmblütern
 * Weltweit vertreten
 * EHEC vor allem in Wiederkäuern: Rinder, Schafe, Ziegen
 
@@ -159,10 +158,10 @@ Zeiten
 
 Labornachweise
 ========================================================
-* Kultur
-* PCR
-* ELISA 
-* Genomsequenzierung
+* Kultur (Goldstandard)
+* PCR (Weißt die Gene nach)
+* ELISA (Weißt die Toxine nach)
+* Genomsequenzierung 
 
 E.Coli erscheint als folgende Meldung
 ========================================================

@@ -734,12 +734,22 @@ document.getElementsByTagName('head')[0].appendChild(style);
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
-        center: falsetrue,
+        center: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
         // Transition style
-        transition: 'default', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
 
