@@ -1,5 +1,5 @@
 ---
-title: "E.Coli: ein typischer Gastroenteritis-Erreger"
+title: "Gastroenteritis-Erreger am Beispiel E.Coli"
 author: "Jakob Schumacher"
 date: "25. Januar 2022"
 output:
@@ -16,6 +16,30 @@ output:
       overview: true
 ---
 
+```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
+basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/")
+
+```
+
+```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
+# library(readr)
+# title <- "Gastroenteritis-Erreger am Beispiel E.Coli"
+# name <- "2022-01-25-Gastroenteritis"
+# filename <- paste0(name, "/", name, ".html") 
+# 
+# tempfilewithpath <- paste0(name, "/", "tempfile.html")
+# file.create(tempfilewithpath)
+# write(paste0("---\ntitle: ", title, "\n---"), file=tempfilewithpath)
+# filedata <- read_file(filename)
+# write(filedata, file=tempfilewithpath, append = TRUE)
+# rm(filedata)
+# file.copy(from = paste0(foldername, filename), to = "../_posts", overwrite = TRUE)
+# file.remove(paste0(foldername,filename))
+# file.remove(tempfilewithpath)
+```
+
+
+
 Jakob Schumacher
 ========================================================
 - Hygienereferent im Gesundheitsamt Reinickendorf
@@ -23,16 +47,17 @@ Jakob Schumacher
   - Robert Koch-Institut
   - Bundesministerium für Gesundheit 
   - Medizin (Krankenhaus, Gefängnis)
+- [Infektionsschutzkompendium](https://jakobschumacher.github.io/infektionsschutzkompendium/)
+- [Merkblätter für Infektionskrankheiten](http://merkblaetter-fuer-infektionskrankheiten.de/)
 
 Überblick über Montag und Mittwoch
 ========================================================
 1. Überblick über Gastroenteritis
 2. E.Coli ausführlich
 3. Erreger bearbeiten: Trello-Board 
-4. Board durchgehen
-5. Walk and Talk
+4. Board/Infektionsschutzkompendium durchgehen
 
-Teil 1  {data-background="bacteria.jpg"}
+Teil 1  {data-background="`r paste0(basepath, "bacteria.jpg")`"}
 ========================================================
 Überblilck über Gastroenteritis Erreger 
 
@@ -49,28 +74,30 @@ Gastroenteritis-Erreger
 * Giardia
 * Kryptosporidiose
 
-
-Die wichtigsten Punkte bei Gastroenteritis-Erregern
+Die wichtigsten Punkte
 ========================================================
 * Gestroenteritis-Erreger sind häufig
-* Viele Ausbrüche
-* Gefährlichster Erreger: EHEC/HUS
-
+* Durchfall ist "gemeinsame Endstrecke" von Viren, Bakterien, Parasiten
+* Großer Killer der Welt: 1,3 Mio (bei 2 Milliarden Infizierten)
+* Gastroenteritis-Erreger Vorbeugung: Wassermanagement, Toiletten, Landwirtschaft
+* In Deutschland größte Gefahr durch: EHEC/HUS
+* Bei der Ermittlung: Ausbrüche bedenken
+* Zusammenarbeit mit Lebensmittelaufsicht
+* Norovirus ist ein Indikator für Hygiene
 
 Der Darm
 ========================================================
 * 4-5 Meter lang
-* Wichtigste Aufgabe: Verdauung, Immunabwehr und ?
 * Enthält 1-2 Kilogramm Bakterien (Mikrobiom)
+* Wichtigste Aufgabe: Verdauung, Immunabwehr und ?
 * Das Mikrobiom spielt eine größere Rolle als bislang gedacht
-
 
 Was muss man zu einem Erreger wissen
 ========================================================
 1. Namen des Erregers und Krankheit
 1. Epidemiologie
 1. Vorkommen
-1. Umweltresistenz
+1. Umweltverhalten
 1. Übertragungswege
 1. Zeiten
 1. Labornachweise
@@ -78,14 +105,34 @@ Was muss man zu einem Erreger wissen
 1. Infektionsinterview-Fragen
 1. Maßnahmen
 
-Teil 2 {data-background="ecoli.jpeg"}
+Teil 2 {data-background="`r paste0(basepath, "ecoli.jpg")`"}
 ========================================================
 E.Coli und seine Krankheiten
 
 Überblick über E.Coli
 ========================================================
-![Ecoli](pictures.png)
+* Coliforme Erreger
+  * E.Coli
+    * ETEC
+    * EPEC
+    * EIEC
+    * EAEC
+    * EHEC
+    * MRGN
+* Je nach Toxin unterschiedliche Krankheitsbilder
 
+
+E.Coli als Symbiont
+========================================================
+* Hilft mit bei der Nahrungsaufspaltung
+* Produziert Vitamine (B-Vitamine, K-Vitamin)
+
+E.Coli als Pathogen
+========================================================
+* Gastroenteritis
+* Infektionen
+* HUS
+* (Indikatorkeim)
 
 Gastroenteritis-Symptome
 ========================================================
@@ -93,9 +140,12 @@ Gastroenteritis-Symptome
 * Bauchschmerzen
 * Durchfall
 * Erbrechen
-* Fieber
 * Schmerzen
-* Blut im Stuhl
+* Erkältungssymptome (Bei Erkältung auch Gastroenteritis)
+* Fieber (Zeichen für Immunaktivität)
+* Blut im Stuhl (Zeichen für Invastion)
+* Exsikkose 
+
 
 Hämolytisch-Urämische Symptome (HUS)
 ========================================================
@@ -145,9 +195,7 @@ Umweltverhalten
 
 Wichtigste Übertragung auf Menschen
 ========================================================
-* Kontaktinfektion (Schmierinfektion)
-  * Übertragung über Hände (Streichelzoo)
-  * Fäkal-Oral
+* Kontaktinfektion (Schmierinfektion, Fäkal-Oral, Händeinfektion)
 * Lebensmittel
 * Trinkwasser
 
@@ -168,7 +216,7 @@ E.Coli erscheint als folgende Meldung
 ========================================================
 * HUS (Arzt)
 * EHEC (Labor)
-* E.Coli-Enteritis (Labor, §33, § 36, §42)
+* E.Coli-Enteritis (Labor, [§34](https://www.gesetze-im-internet.de/ifsg/__34.html), [§36](https://www.gesetze-im-internet.de/ifsg/__36.html))
 * Wasserkeim (TrinkWV)
 * MRGN (Labor)
 * Wundinfektionskeim (Fehlmeldung)
@@ -194,6 +242,7 @@ Maßnahmen EHEC II
 
 Infektionsinterview-Fragen I
 ========================================================
+* Wie geht es Ihnen? (!)
 * Welche Krankheitszeichen sind bei Ihnen aufgetreten?
 * Wann hat die Erkrankung genau begonnen?
 * Sind in Ihrem Umfeld weitere Personen erkrankt?
@@ -208,23 +257,30 @@ Infektionsinterview-Fragen II
 * Waren sie vor Erkrankungsbeginn im Kontakt mit Wiederkäuern? 
 
 
-Teil 3 + 4 {data-background="trello.png"}
+Teil 3
 ========================================================
 <a href="https://trello.com/b/jhUvwVfx/hygko-67-68">Trello-Board<a>
 
+Teil 4
+========================================================
+<a href="https://jakobschumacher.github.io/infektionsschutzkompendium">Infektionsschutzkompendium<a>
 
 
-# Vielen Dank
-* Bilder von
-  * https://unsplash.com/photos/13UugSL9q7A 
+Vielen Dank
+========================================================
+* Software
+  * Revealjs
+  * R, RStudio
+  * Jekyll
+* Freie Bilder von
+  * Michael Schiffer https://unsplash.com/photos/13UugSL9q7A 
+  * Janice Haney Carr, National Escherichia, Shigella, Vibrio Reference Unit at CDC, USCDCP
   
+Wichtige Links
+========================================================
+* <a href="https://jakobschumacher.github.io/infektionsschutzkompendium">Infektionsschutzkompendium<a>
+* <a href="https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/merkblaetter_node.html">RKI-Ratgeber<a>
+* <a href="https://www.bfr.bund.de/de/lebensmittelhygiene-54338.html">Lebensmittelhygiene BFR<a>
+* <a href="https://www.auswaertiges-amt.de/de/ReiseUndSicherheit/reise-und-sicherheitshinweise">Reisewarnungen des Auswärtigen Amtes<a>
 
-```{r, echo=FALSE}
-
-foldername <- "2022-01-25-Gastroenteritis/"
-filename <- list.files(path= foldername, pattern = "*.html")
-file.copy(from = paste0(foldername, filename), to = "../_posts", overwrite = TRUE)
-file.remove(paste0(foldername,filename))
-
-```
-
+  
