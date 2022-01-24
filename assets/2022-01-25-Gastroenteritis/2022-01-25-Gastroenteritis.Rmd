@@ -41,6 +41,11 @@ file.remove(tempfilewithpath)
 file.remove(filename)
 ```
 
+Download und Link
+========================================================
+[Online-Link](https://jakobschumacher.github.io/presentations/2022/01/25/Gastroenteritis.html#/)  
+[Download als PDF](`r paste0(basepath, "Gastroenteritis-Erreger am Beispiel E.Coli.pdf")`)
+
 
 
 Jakob Schumacher

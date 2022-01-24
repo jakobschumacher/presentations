@@ -16,7 +16,6 @@ layout: default
     {% assign posts = site.posts %}
   {% endif %}
 
-
   {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
@@ -26,7 +25,7 @@ layout: default
       {%- for post in posts -%}
       <li>
         <span class="post-meta">
-          {{ post.date | date: date_format }} 
+          {{ post.date | date: date_format }}
           {% if post.course %}| {{ post.course }} {% endif %}
           {% if post.host %}| {{ post.host }} {% endif %}
         </span>
@@ -60,7 +59,7 @@ layout: default
       </div>
     {%- endif %}
 
-  
+
   {%- endif -%}
 
 </div>

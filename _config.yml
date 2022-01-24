@@ -6,7 +6,8 @@ baseurl: "/presentations" # the subpath of your site, e.g. /blog
 url: "https://jakobschumacher.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 
-#exclude:
+exclude:
+- "*.Rmd"
 #- assets/2022-01-25-Gastroenteritis
 #- assets/2022-01-31-IfSG-WBK
 
