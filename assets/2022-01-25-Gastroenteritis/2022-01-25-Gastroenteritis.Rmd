@@ -57,7 +57,7 @@ Jakob Schumacher
 ========================================================
 1. Überblick über Gastroenteritis
 2. E.Coli ausführlich
-3. Erreger bearbeiten: Trello-Board 
+3. Erreger bearbeiten: Board 
 4. Board/Infektionsschutzkompendium durchgehen
 
 Teil 1  {data-background="`r paste0(basepath, "bacteria.jpg")`"}
@@ -262,7 +262,9 @@ Infektionsinterview-Fragen II
 
 Teil 3
 ========================================================
-<a href="https://trello.com/b/jhUvwVfx/hygko-67-68">Trello-Board<a>
+<a href="https://miro.com/app/board/uXjVOTNi844=/">Board<a>
+
+Passwort: Durchfall
 
 Teil 4
 ========================================================
