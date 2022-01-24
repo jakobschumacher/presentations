@@ -1,0 +1,89 @@
+---
+title: "Das Infektionsschutzgesetz"
+author: "Jakob Schumacher"
+date: "31. Januar 2022"
+output:
+  revealjs::revealjs_presentation:
+    center: true
+    theme: dark
+    transition: slide
+    self_contained: true
+    reveal_options:
+      previewLinks: true
+      controls: false
+      progress: true
+      overview: true
+      slideNumber: 'c/t' 
+    
+    
+---
+
+Das Infektionsschutzgesetz 
+========================================================
+Das ist ein Test
+
+
+# {data-background=#fff}
+```{r, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
+library(ggplot2)
+suppressWarnings(suppressMessages(library(plotly)))
+suppressWarnings(suppressMessages(library(dplyr)))
+var_inhalte = c( "Hygiene", "Meldungen", "Trinkwasser", "Schädlinge", "Katastrophenschutz", "Umwelmedizin")
+df <- data.frame(Inhalt = factor(var_inhalte, ordered = TRUE, levels = var_inhalte), Aufwand = c(4,3,1.5,0.75, 0.25, 0.25 ))
+g <- ggplot(df, aes(x=Inhalt, y = Aufwand, fill=Inhalt)) + 
+  geom_bar(stat = "identity") + 
+  theme_classic() +
+  labs(x = NULL, y="Geschätzter Aufwand") +
+  theme(legend.background = element_rect(fill = "transparent"),
+        legend.box.background = element_rect(fill = "transparent"),
+        panel.background = element_rect(fill = "transparent"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.background = element_rect(fill = "transparent", color = NA),
+        legend.position = "none")
+ggplotly(g) %>% config(displayModeBar = F)
+```
+
+
+
+ {data-background="ifsg-overview.jpg"}
+=======================================================
+
+
+```{r, echo=FALSE, include=FALSE}
+library(here)
+foldername <- "2022-01-31-IfSG-WBK/"
+filename <- list.files(path= foldername, pattern = "*.html")
+file.copy(from = paste0(foldername, filename), to = "../_posts", overwrite = TRUE)
+file.remove(paste0(foldername,filename))
+
+```
+
+
+# Änderungen im IfSG {data-background=#fff}
+```{r, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
+suppressWarnings(suppressMessages(library(lubridate)))
+suppressWarnings(suppressMessages(library(here)))
+foldername <- "2022-01-31-IfSG-WBK/"
+df <- read.csv(here(foldername,"ifsg-aenderungen.csv")) %>% 
+  mutate(Datum = stringr::str_remove(Datum, pattern="\\((.*?)\\)")) %>% 
+  mutate(Datum = stringr::str_trim(Datum)) %>% 
+  mutate(Datum = dmy(Datum)) %>% 
+  mutate(Jahr = year(Datum))
+    
+
+g <- ggplot(df, aes(Jahr)) + 
+  geom_bar() +
+  theme_classic() +
+  labs(x = NULL, y="Anzahl Änderungen IfSG") +
+  theme(legend.background = element_rect(fill = "transparent"),
+        legend.box.background = element_rect(fill = "transparent"),
+        panel.background = element_rect(fill = "transparent"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.background = element_rect(fill = "transparent", color = NA),
+        legend.position = "none")
+ggplotly(g) %>% config(displayModeBar = F)
+
+```
+

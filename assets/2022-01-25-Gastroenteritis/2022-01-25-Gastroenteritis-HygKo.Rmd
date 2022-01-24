@@ -4,11 +4,12 @@ author: "Jakob Schumacher"
 date: "25. Januar 2022"
 output:
   revealjs::revealjs_presentation:
+    center: true
     theme: dark
     transition: slide
     self_contained: true
     reveal_options:
-      slideNumber: true
+      slideNumber: 'c/t' 
       previewLinks: true
       controls: false
       progress: true
@@ -31,7 +32,7 @@ Jakob Schumacher
 4. Board durchgehen
 5. Walk and Talk
 
-Teil 1
+Teil 1  {data-background="bacteria.jpg"}
 ========================================================
 Überblilck über Gastroenteritis Erreger 
 
@@ -77,7 +78,7 @@ Was muss man zu einem Erreger wissen
 1. Infektionsinterview-Fragen
 1. Maßnahmen
 
-Teil 2
+Teil 2 {data-background="ecoli.jpeg"}
 ========================================================
 E.Coli und seine Krankheiten
 
@@ -207,7 +208,23 @@ Infektionsinterview-Fragen II
 * Waren sie vor Erkrankungsbeginn im Kontakt mit Wiederkäuern? 
 
 
-Teil 3 + 4
+Teil 3 + 4 {data-background="trello.png"}
 ========================================================
 <a href="https://trello.com/b/jhUvwVfx/hygko-67-68">Trello-Board<a>
+
+
+
+# Vielen Dank
+* Bilder von
+  * https://unsplash.com/photos/13UugSL9q7A 
+  
+
+```{r, echo=FALSE}
+
+foldername <- "2022-01-25-Gastroenteritis/"
+filename <- list.files(path= foldername, pattern = "*.html")
+file.copy(from = paste0(foldername, filename), to = "../_posts", overwrite = TRUE)
+file.remove(paste0(foldername,filename))
+
+```
 
