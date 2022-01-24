@@ -17,25 +17,28 @@ output:
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/")
+basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/2022-01-25-Gastroenteritis/")
 
 ```
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
-# library(readr)
-# title <- "Gastroenteritis-Erreger am Beispiel E.Coli"
-# name <- "2022-01-25-Gastroenteritis"
-# filename <- paste0(name, "/", name, ".html") 
-# 
-# tempfilewithpath <- paste0(name, "/", "tempfile.html")
-# file.create(tempfilewithpath)
-# write(paste0("---\ntitle: ", title, "\n---"), file=tempfilewithpath)
-# filedata <- read_file(filename)
-# write(filedata, file=tempfilewithpath, append = TRUE)
-# rm(filedata)
-# file.copy(from = paste0(foldername, filename), to = "../_posts", overwrite = TRUE)
-# file.remove(paste0(foldername,filename))
-# file.remove(tempfilewithpath)
+library(readr)
+title <- "Gastroenteritis-Erreger am Beispiel E.Coli"
+name <- "2022-01-25-Gastroenteritis"
+presentation_date <- "2022-01-25 08:30:00"
+filename <- paste0(name, "/", name, ".html")
+
+tempfilewithpath <- paste0(name, "/", "tempfile.html")
+file.create(tempfilewithpath)
+write(paste0("---\ntitle: ", title), file=tempfilewithpath)
+write(paste0("date: ", presentation_date), file=tempfilewithpath, append = TRUE)
+write(paste0("---"), file=tempfilewithpath, append = TRUE)
+filedata <- read_file(filename)
+write(filedata, file=tempfilewithpath, append = TRUE)
+rm(filedata)
+file.copy(from = paste0(tempfilewithpath), to = paste0("../_posts/", name, ".html"), overwrite = TRUE)
+file.remove(tempfilewithpath)
+file.remove(filename)
 ```
 
 
@@ -105,7 +108,7 @@ Was muss man zu einem Erreger wissen
 1. Infektionsinterview-Fragen
 1. Maßnahmen
 
-Teil 2 {data-background="`r paste0(basepath, "ecoli.jpg")`"}
+Teil 2 {data-background="`r paste0(basepath, "ecoli.jpeg")`"}
 ========================================================
 E.Coli und seine Krankheiten
 
