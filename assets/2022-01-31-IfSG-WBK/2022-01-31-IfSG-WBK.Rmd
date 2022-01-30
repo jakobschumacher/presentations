@@ -24,11 +24,9 @@ suppressWarnings(suppressMessages(library(here)))
 suppressWarnings(suppressMessages(library(readr)))
 suppressWarnings(suppressMessages(library(ggplot2)))
 suppressWarnings(suppressMessages(library(plotly)))
-```
 
-```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
 title <- "Das Infektionsschutzgesetz - WBK Kurs 17"
-name <- "2022-01-31-IfSG"
+name <- "2022-01-31-IfSG-WBK"
 presentation_date <- "2022-01-31 08:30:00"
 filename <- paste0(name, "/", name, ".html")
 
@@ -47,15 +45,15 @@ file.remove(filename)
 
 # Über diesen Vortrag
 * Jakob Schumacher (Gesundheitsamt Reinickendorf)
-* Vortrag als Webseite hier 
-* PDF zum Download
+* Thema: Praktischer Blick auf das Infektionsschutzgesetz 
+* Vortrag als Webseite: [https://jakobschumacher.github.io/presentations](https://jakobschumacher.github.io/presentations/2022/01/31/IfSG-WBK.html#/) 
 
 # Powersätze
-* _Wir müssen den Infektionsnotfall üben_
 * _Wir dürfen alles nach § 16_
 * _Wir müssen - und dürfen auch - nach § 25 ermitteln_
 * _Sie sind ein Fall! Mein "Gerichtsurteil": Gemäß §28 ordne ich Ihnen an...._
 * _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
+* _Wir müssen den Infektionsnotfall üben_
 
 # I Das Infektionsschutzgesetz {data-background="ifsg.jpg"}
 
