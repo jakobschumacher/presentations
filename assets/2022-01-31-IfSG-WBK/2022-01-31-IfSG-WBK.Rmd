@@ -11,9 +11,10 @@ output:
     reveal_options:
       slideNumber: 'c/t' 
       previewLinks: true
-      controls: false
+      controls: true
       progress: true
       overview: true
+      controlsTutorial: true
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
@@ -24,7 +25,10 @@ suppressWarnings(suppressMessages(library(here)))
 suppressWarnings(suppressMessages(library(readr)))
 suppressWarnings(suppressMessages(library(ggplot2)))
 suppressWarnings(suppressMessages(library(plotly)))
+```
 
+
+```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
 title <- "Das Infektionsschutzgesetz - WBK Kurs 17"
 name <- "2022-01-31-IfSG-WBK"
 presentation_date <- "2022-01-31 08:30:00"
@@ -47,15 +51,33 @@ file.remove(filename)
 * Jakob Schumacher (Gesundheitsamt Reinickendorf)
 * Thema: Praktischer Blick auf das Infektionsschutzgesetz 
 * Vortrag als Webseite: [https://jakobschumacher.github.io/presentations](https://jakobschumacher.github.io/presentations/2022/01/31/IfSG-WBK.html#/) 
+* Bitte Chat beachten
+<small>Folien sind Thematisch sortiert und sind auch unten (Pfeil nach unten)</small>
+
+
+
+```{r eval=TRUE, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
+loesung1 <- "# das ist ein Test"
+```
+
+`r if (exists("loesung1")){loesung1}`
+`r if (exists("loesung7")){loesung1}`
+
+
+
+
+# Zuende
+
+
 
 # Powersätze
 * _Wir dürfen alles nach § 16_
 * _Wir müssen - und dürfen auch - nach § 25 ermitteln_
-* _Sie sind ein Fall! Mein "Gerichtsurteil": Gemäß §28 ordne ich Ihnen an...._
+* _Sie sind ein Fall! Gemäß §28 ordne ich Ihnen an...._
 * _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
 * _Wir müssen den Infektionsnotfall üben_
 
-# I Das Infektionsschutzgesetz {data-background="ifsg.jpg"}
+# I Das Infektionsschutzgesetz {data-background="themis.png"}
 
 ## Die wichtigsten Punkte
 1. Das IfSG ist Teil des Ordnungsrechts
@@ -106,6 +128,7 @@ file.remove(filename)
 
 ## Änderungen im IfSG {data-background=#fff}
 ```{r, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
+
 foldername <- "2022-01-31-IfSG-WBK/"
 df <- read.csv(here(foldername,"ifsg-aenderungen.csv")) %>% 
   mutate(Datum = stringr::str_remove(Datum, pattern="\\((.*?)\\)")) %>% 
@@ -132,13 +155,21 @@ ggplotly(g) %>% config(displayModeBar = F)
 
 ## {data-background="ifsg-overview.jpg"}
 
+## Verordnung auf Grundlage des IfSG
+* TrinkwV
+* Hygieneverordnung
+* Infektionsverhütungsverordnung
+* SARS-CoV-2-Infektionschutmaßnahmenverordnung
+* Meldepflicht-Verordnungen
+* Coronavirus-Verordnungen
+
 ## 4) Das IfSG ist zentral für den Bereich Infektionsschutz im Gesundheitsamt  {data-background="ga_dortmund.jpg"}
 
 ## Aufgaben im Bereich Infektionsschutz {data-background=#fff}
 ```{r, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
 
 var_inhalte = c( "Hygiene", "Meldungen", "Trinkwasser", "Schädlinge", "Katastrophenschutz", "Umwelmedizin")
-df <- data.frame(Inhalt = factor(var_inhalte, ordered = TRUE, levels = var_inhalte), Aufwand = c(4,3,1.5,0.75, 0.25, 0.25 ))
+df <- data.frame(Inhalt = factor(var_inhalte, ordered = TRUE, levels = var_inhalte), Aufwand = c(3.2,3,2,0.75, 0.25, 0.25 ))
 g <- ggplot(df, aes(x=Inhalt, y = Aufwand, fill=Inhalt)) + 
   geom_bar(stat = "identity") + 
   theme_classic() +
@@ -153,24 +184,27 @@ g <- ggplot(df, aes(x=Inhalt, y = Aufwand, fill=Inhalt)) +
 ggplotly(g) %>% config(displayModeBar = F)
 ```
 
+## Was haben Sie mitgenommen?
+
 # II Wichtige Paragraphen {data-background="paragraph.jpg"}
 
-## § 12-Beispiel: Der Infektionsnotfall
+## [§ 12](https://www.gesetze-im-internet.de/ifsg/__12.html)-Beispiel: Der Infektionsnotfall
 Feuerwehrleitzentrale ruft an: _"Notarzt vermutet Ebola-Fall"_
 
-## Was ist in der Realität passiert?
-* Telefonisch §12 Meldung
-* STAKOB Einrichtung anrufen
-* Vor Ort gehen: Taxi/Feuerwehr/Polizei rufen
+## Ein Beispiel
+* Telefonisch [§12 Meldung](https://www.rki.de/DE/Content/Infekt/IfSG/Meldeboegen/Meldung_12/meldung_12_node.html)
+* [STAKOB](https://www.rki.de/DE/Content/Kommissionen/Stakob/Stakob_node.html) Einrichtung anrufen
+* Vor Ort gehen: Taxi/Feuerwehr/Polizei
+* Material mitnehmen
 * Information Mitarbeitende/Kommune
 * Vor Ort: Anweisungen geben
   - Lagebesprechung
-  - Versorung mit PSA
+  - Patientenversorung mit PSA
   - Sperrbereich
   - KPs festlegen
   - Desinfektion festlegen
 
-## § 16-Beispiel: Schließung einer Praxis
+## [§ 16](https://www.gesetze-im-internet.de/ifsg/__16.html)-Beispiel: Schließung einer Praxis
 Bei einer Praxisbegehung: Der Arzt verwendet rostiges Werkzeug, hat falsches abgelaufenes Händedesinfektionsmittel, geflickte Desinfektionsanlage. Als der Arzt merkt, dass es kritisch wird,  beruft er sich aufs Hausrecht und den Datenschutz und will alles schriftlich. 
 
 ## Was ist in der Realität passiert?
@@ -181,7 +215,7 @@ Bei einer Praxisbegehung: Der Arzt verwendet rostiges Werkzeug, hat falsches abg
 * Anordnung nach §16 erstellt
 * Rücksprache mit Rechtsamt
 
-## § 20a-Beispiel: Umsetzung der Impfpflicht
+## [§ 20a](https://www.gesetze-im-internet.de/ifsg/__20a.html)-Beispiel: Umsetzung der Impfpflicht
 Die Politik hat eine Impfpflicht für Beschäftigte in bestimmten Einrichtungen umgesetzt. 
 
 ## Wie könnte ein Gesundheitsamt das lösen?
@@ -194,15 +228,15 @@ Die Politik hat eine Impfpflicht für Beschäftigte in bestimmten Einrichtungen 
 * Kontrollpunkte einrichten
 * Statistik mitbedenken
 
-## § 23-Beispiel: Hygienepersonal im Krankenhaus
+## [§ 23](https://www.gesetze-im-internet.de/ifsg/__23.html)-Beispiel: Hygienepersonal im Krankenhaus
 Ein Krankenhaus hat nicht genügend Hygienepersonal.
 
 ## Wie kann vorgegangen werden
 * Ansprechen bei der Begehung
-* Anordnung der Erfassung des nach KRINKO notwendigen Personals
-* Einfacher durchzusetzen ist die [Hygieneverordnung](https://www.aekb.de/fileadmin/migration/pdf/Anlage_1_Hygieneverordnung_Berlin_12_06_2012.pdf) 
+* Anordnung der Erfassung des nach [KRINKO](https://www.rki.de/DE/Content/Infekt/Krankenhaushygiene/Kommission/kommission_node.html/) notwendigen Personals
+* Einfacher durchzusetzen wäre die [Hygieneverordnung](https://www.aekb.de/fileadmin/migration/pdf/Anlage_1_Hygieneverordnung_Berlin_12_06_2012.pdf) 
 
-## Beispiel für § 28: Quarantäne
+## [§ 28](https://www.gesetze-im-internet.de/ifsg/__28.html): Quarantäne
 Eine Labor meldet eine Person mit Covid-19. Im selben Haushalt befindet sich noch ein weiterer asymptomatischer Fall, eine symptomatische Person ohne Labornachweis und eine Kontaktperson.
 
 ## Hinweise
@@ -210,7 +244,7 @@ Eine Labor meldet eine Person mit Covid-19. Im selben Haushalt befindet sich noc
 * Anschreiben
 * Empfehlungen des RKIs folgen
 
-## Beispiel für § 34: Shigelloseausbruch
+## [§ 34](https://www.gesetze-im-internet.de/ifsg/__34.html): Shigelloseausbruch
 Einer Hygienekontrolleurin fällt auf, dass sie heute zwei Shigellose-Fälle hat, die nicht aus dem Ausland kommen. Es stellt sich heraus, das es einige Fälle in einer Kita gibt. 
 
 ## Was haben wir getan?
@@ -225,10 +259,10 @@ Einer Hygienekontrolleurin fällt auf, dass sie heute zwei Shigellose-Fälle hat
 * Maßnahmen angeordnet (Nach § 16 bzw. Desinfektionsmittel nach §18)
 * Keine Suche nach dem Zusammenhang mit Fällen unter Personen mit riskantem Sexualverhalten 
 
-## §§ 6/7/8-Übung: Meldepflicht für E.Coli
+## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Meldepflicht für E.Coli
 Ein Gesundheitsamt bekommt eine E.Coli-Meldung. In welchen Kombinationen Meldepflichtige Person - Meldepflichtiges Ereignis ist das möglich?
 
-## Lösung
+## Lösungsvorschlag
 * Arzt/Pathologe/Heilberuf/Unterkünfte/Heilprakriker -> 6.1.1.f (HUS)
 * Arzt/Pathologe/Heilberuf/Unterkünfte -> 6.1.2 (Gastroenteritis)
 * Arzt/Pathologe/Heilberuf -> 6.3 (Nosokomialer Ausbruch)
@@ -237,12 +271,38 @@ Ein Gesundheitsamt bekommt eine E.Coli-Meldung. In welchen Kombinationen Meldepf
 * Zusätzlich Kindereinrichtung -> 34.1.3
 * Zusätzlich USI -> 16 Trinkwv 
 
-## §§ 6/7/8-Übung: Nicht-namentliche Ereignisse 
+## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Nicht-namentliche Ereignisse 
 Welche nicht-namentliche meldepflichtigen Ereignisse können vorkommen und an wen müssen sie gemeldet werden?
 
-## Lösung
+## Lösungsvorschlag
 * §6.3 (Nosokomialer Ausbruch) durch Arzt/Pathologe/Heilberuf an das Gesundheitsamt
 * §7.3 (HIV/Trepanoma/Gonokokken/Echinokokken/Malaria/Toxoplasmose/) an das RKI
+
+## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Krankenhaus
+Welche typischen Meldeereignisse kommen eigentlich immer aus einem Krankenhaus?
+
+## Lösungsvorschlag
+* § 6.1.1a.b Clostridioides
+* § 6.3 Nosokomialer Ausbruch
+* § 7.1.52 MRSA/MRGN
+* § 7.2 Unbekannter Erreger
+
+## [§ 23a](https://www.gesetze-im-internet.de/ifsg/__23a.html) Impfstatus
+Im Gesundheitsamt gibt es Personen die Ersthausbesuche machen und nicht gegen Masern geimpft sind. Was keine Amtsleitung dagegen tun?
+
+## Vorgehen in unserem Gesundheitsamt
+* Abfrage nach §23a geplant
+* Konsequenz unklar
+
+## [§ 42](https://www.gesetze-im-internet.de/ifsg/__42.html) Gastro-Personal
+
+## [§ 44](https://www.gesetze-im-internet.de/ifsg/__44.html) Labore
+
+## [§ 56](https://www.gesetze-im-internet.de/ifsg/__56.html) Entschädigung
+
+## [§ 73](https://www.gesetze-im-internet.de/ifsg/__73.html) Ordnungswidrigkeiten
+
+## Was haben Sie mitgenommen?
 
 # III Flughafenübung {data-background="flughafen.jpg"}
 
@@ -301,7 +361,7 @@ Sie können eine krankheitsverdächtige Person eine Quarantäne nach § 30 IfSG 
 Als die krankheitsverdächtige Person im Rettungswagen ist, sehen Sie das eine der betreuenden Pfleger keine Schutzkleidung trägt. Sie stellen ihn zu Rede. "Ich muss nachher noch dringend eine Schicht auf der Krebsstation übernehmen und habe keine Zeit mich umzuziehen." verteidigt er sich. "Sie werden vorerst gar keine Schicht auf der Krebsstation übernehmen." sagen Sie. "Ich ordne hiermit ein Tätigkeitsverbot an." 
 _Auf welcher gesetzlichen Grundlage dürfen Sie ein Tätigkeitsverbot anordnen? Können Sie ihm direkt ein Tätigkeitsverbot geben, selbst wenn die minimale Inkubationszeit 1 Tage beträgt?_
 
-##Antwort 
+## Antwort 
 Sie können dem Pfleger ein Tätigkeitsverbot nach § 31 anordnen, wenn Sie den Pfleger als ansteckungsverdächtig betrachten. Auch bei einem Erzieher einer § 33 Einrichtung würde man ein Tätigkeitsverbot nach § 31 anordnen, da Covid im § 34 nicht erwähnt ist. Die Zeitdauer legt das Gesundheitsamt fest. Da der Pfleger ja vorhatte ohne sich umzuziehen zur Arbeit zu gehen, trägt er womöglich den Erreger an sich. Damit ist nach § 31 Satz 2 ein direktes Tätigkeitsverbot möglich.
 
 ## 08 Ansteckungsverdacht
@@ -361,7 +421,7 @@ _Auf welcher gesetzlichen Grundlage könnten Sie einen größeres Gebiet sperren
 ## Antwort
 Nach § 16 ist es prinzipell möglich ein größeres Gebiet zu sperren. Die Maßnahme muss allerdings verhältnismaßig sein, das bedeutet: 1. Die Maßnahme muss legitim sein (auf das Wohl der Allgemeinheit gerichtet oder ein staatlicher Schutzauftrag. 2. Die Maßnahme muss geeignet sein (das angestrebte Ziel kann mit der Maßnahme zumindest gefördert werden.) 3. Die Maßnahme muss erforderlich sein (kein milderes Mittel) 4. Die Maßnahme muss angemessen sein (Nachteile nicht völlig außer Verhältnis zu den Vorteilen)
 
-# IV Diskussion {data-background="discussion.jpg"}  
+# IV Diskussion {data-background="discussion.jpg" style="color:black;"}  
 
 ## Wieso gibt es in Deutschland 378 unterschiedliche Quarantäneschreiben?
 
@@ -377,14 +437,15 @@ Nach § 16 ist es prinzipell möglich ein größeres Gebiet zu sperren. Die Maß
 
 
 # Powersätze
-* _Unsere Aufgabe: übertrag. Krankheiten vorzubeugen, Infektionen erkennen, Weiterverbreitung verhindern_
-* _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
-* _Wir müssen den Infektionsnotfall üben_
 * _Wir dürfen alles nach § 16_
 * _Wir müssen - und dürfen auch - nach § 25 ermitteln_
-* _Sie sind ein Fall! Mein "Gerichtsurteil": Gemäß §28 ordne ich Ihnen an...._
-* _KRINKO-Empfehlungen sind verpflichtend, aber..._
-* _Wir müssen gut mit unseren Einrichtungen nach §23, §33 und §36 zusammenarbeiten_
+* _Sie sind ein Fall! Gemäß §28 ordne ich Ihnen an...._
+* _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
+* _Wir müssen den Infektionsnotfall üben_
 
+# Evaluation
+* Was haben Sie insgesamt mitgenommen?
+* Werden Sie in der kommenden Zeit etwas anders machen?
+* Was kann der Dozent besser machen? (Private Nachricht)
 
 # Vielen Dank fürs Zuhören
