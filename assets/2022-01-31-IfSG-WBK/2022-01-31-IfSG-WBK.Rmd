@@ -18,11 +18,14 @@ output:
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/2022-01-25-Gastroenteritis/")
-
 zeigeloesungenan <- TRUE
+jekyllimage <- TRUE
 
-rmarkdown::render('my_reveal_presentation.Rmd')
+title <- "Das Infektionsschutzgesetz - WBK Kurs 17"
+name <- "2022-01-31-IfSG-WBK"
+basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/", name, "/")
+# basepath <- ""
+presentation_date <- "2022-01-31 08:30:00"
 
 suppressWarnings(suppressMessages(library(dplyr)))
 suppressWarnings(suppressMessages(library(lubridate)))
@@ -34,9 +37,9 @@ suppressWarnings(suppressMessages(library(plotly)))
 
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
-title <- "Das Infektionsschutzgesetz - WBK Kurs 17"
-name <- "2022-01-31-IfSG-WBK"
-presentation_date <- "2022-01-31 08:30:00"
+
+rmarkdown::render(paste0(name, '/', name, '.Rmd'))
+
 filename <- paste0(name, "/", name, ".html")
 
 tempfilewithpath <- paste0(name, "/", "tempfile.html")
@@ -66,7 +69,7 @@ file.remove(filename)
 * _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
 * _Wir müssen den Infektionsnotfall üben_
 
-# I Das Infektionsschutzgesetz {data-background="themis.png"}
+# I Das Infektionsschutzgesetz {data-background="`r paste0(basepath,"themis.png")`"}
 
 ## Die wichtigsten Punkte
 1. Das IfSG ist Teil des Ordnungsrechts
@@ -74,7 +77,7 @@ file.remove(filename)
 1. Das IfSG Ist ein Potpourri an Bestimmungen  
 1. Das IfSG ist zentral für den Bereich Infektionsschutz im Gesundheitsamt
 
-## 1) Das IfSG ist Teil des Ordnungsrechts {data-background="schiedsrichter.jpg"}
+## 1) Das IfSG ist Teil des Ordnungsrechts {data-background="`r paste0(basepath,"schiedsrichter.jpg")`"}
 
 ## Linienrichter
 * Aufgaben
@@ -97,7 +100,7 @@ file.remove(filename)
 * Bestrafungen
   * Ermahnung, Ordnungswidrigkeit, Zwangsgeld, Ersatzvornahme, Strafverfahren
 
-## 2) Das IfSG ist geprägt durch Pandemien {data-background="seuchen.jpg"}
+## 2) Das IfSG ist geprägt durch Pandemien {data-background="`r paste0(basepath,"seuchen.jpg")`"}
 
 ## IfSG und Vorläufergesetze
 * [Reichsseuchengesetz 1900](https://www.reichstagsprotokolle.de/Blatt_k10_bsb00002789_00558.html) 
@@ -142,7 +145,7 @@ ggplotly(g) %>% config(displayModeBar = F)
 
 ## 3) Das IfSG ist ein Potpurri
 
-## {data-background="ifsg-overview.jpg"}
+## {data-background="`r paste0(basepath,"ifsg-overview.jpg")`"}
 
 ## Verordnung auf Grundlage des IfSG
 * TrinkwV
@@ -153,7 +156,7 @@ ggplotly(g) %>% config(displayModeBar = F)
 * Coronavirus-Verordnungen
 * ...
 
-## 4) Das IfSG ist zentral für den Bereich Infektionsschutz im Gesundheitsamt  {data-background="ga_dortmund.jpg"}
+## 4) Das IfSG ist zentral für den Bereich Infektionsschutz im Gesundheitsamt  {data-background="`r paste0(basepath,"ga_dortmund.jpg")`"}
 
 ## Aufgaben im Bereich Infektionsschutz {data-background=#fff}
 ```{r, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
@@ -176,7 +179,7 @@ ggplotly(g) %>% config(displayModeBar = F)
 
 ## Was haben Sie mitgenommen?
 
-# II Wichtige Paragraphen {data-background="paragraph.jpg"}
+# II Wichtige Paragraphen {data-background="`r paste0(basepath,"paragraph.jpg")`"}
 
 ## [§ 12](https://www.gesetze-im-internet.de/ifsg/__12.html)-Beispiel: Der Infektionsnotfall
 Feuerwehrleitzentrale ruft an: _"Notarzt vermutet Ebola-Fall"_
@@ -202,7 +205,7 @@ Bei einer Praxisbegehung: Der Arzt verwendet rostiges Werkzeug, hat falsches abg
 * Kriterien für die Aufhebung der Schließung darstellen. CAVE: Einhaltung von Richtlinien als Ziel 
 * Auf Begehung und Unterlagen bestanden. Zur Not Polzei rufen.
 * Ausführliches Protokoll erstellt, Photos mit Diensthandy gemacht
-* Anordnung nach §16 erstellt
+* [Anordnung nach §16](`r paste0(basepath,"praxisschliessung.pdf")`) erstellt
 * Rücksprache mit Rechtsamt
 
 ## [§ 20a](https://www.gesetze-im-internet.de/ifsg/__20a.html)-Beispiel: Umsetzung der Impfpflicht
@@ -231,7 +234,7 @@ Eine Labor meldet eine Person mit Covid-19. Im selben Haushalt befindet sich noc
 
 ## Hinweise
 * Telefonische Ermittlung
-* Anschreiben
+* [Anordnung nach § 28](`r paste0(basepath,"absonderung.pdf")`)
 * Empfehlungen des RKIs folgen
 
 ## [§ 34](https://www.gesetze-im-internet.de/ifsg/__34.html): Shigelloseausbruch
@@ -246,7 +249,7 @@ Einer Hygienekontrolleurin fällt auf, dass sie heute zwei Shigellose-Fälle hat
 * Ausbruchsfalldefinition festgelegt
 * TVs nach [Wiederzulassungstabelle §34](https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/Wiederzulassung/Wiederzulassung_Tabelle.pdf?__blob=publicationFile) angesetzt
 * Aushang und Informationsweitergabe durch die Kitaleitung (FAQ durch uns) 
-* Maßnahmen angeordnet (Nach § 16 bzw. Desinfektionsmittel nach §18)
+* [Maßnahmen](`r paste0(basepath,"shigellenausbruch.pdf")`) angeordnet 
 * Keine Suche nach Personen mit riskantem Sexualverhalten 
 
 ## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Meldepflicht für E.Coli
@@ -313,7 +316,7 @@ Im Gesundheitsamt gibt es Personen die Ersthausbesuche machen und nicht gegen Ma
 
 ## Was haben Sie mitgenommen?
 
-# III Flughafenübung {data-background="flughafen.jpg"}
+# III Flughafenübung {data-background="`r paste0(basepath,"flughafen.jpg")`"}
 
 ## Einleitung
 Sie arbeiten seit 6 Monaten im Gesundheitsamt Reinickendorf. In Reinickendorf liegt der Flughafen Tegel. Es ist Freitag der 7.2.2020 um 15 Uhr. Das Landesministerium ruft sie an: Es sollen 20 Personen mit einem Bundeswehrflieger aus Wuhan kommen. Sie wissen, dass in Wuhan viele Fälle von Covid aufgetreten sind. Die WHO hat deswegen eine Gesundheitliche Notlage von internationaler Tragweite ausgerufen. 
@@ -490,7 +493,7 @@ Nach § 16 ist es prinzipell möglich ein größeres Gebiet zu sperren. Die Maß
 ```
 `r if (exists("myVar")){myVar}`
 
-# IV Diskussion {data-background="discussion.jpg" style="color:black;"}  
+# IV Diskussion {data-background="`r paste0(basepath,"discussion.jpg")`" style="color:black;"}  
 
 ## Wieso gibt es in Deutschland 378 unterschiedliche Quarantäneschreiben?
 
@@ -512,9 +515,11 @@ Nach § 16 ist es prinzipell möglich ein größeres Gebiet zu sperren. Die Maß
 * _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
 * _Wir müssen den Infektionsnotfall üben_
 
-# Evaluation
+# Wiederholung
 * Was haben Sie insgesamt mitgenommen?
 * Werden Sie in der kommenden Zeit etwas anders machen?
-* Was kann der Dozent besser machen? (Private Nachricht)
+
+# Evaluation
+* Was kann der Dozent besser machen? (Private Nachricht im Chat)
 
 # Vielen Dank fürs Zuhören
