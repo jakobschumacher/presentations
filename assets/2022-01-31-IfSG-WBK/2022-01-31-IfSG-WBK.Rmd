@@ -18,7 +18,7 @@ output:
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-zeigeloesungenan <- TRUE
+zeigeloesungenan <- FALSE
 jekyllimage <- TRUE
 
 if (zeigeloesungenan) {
@@ -31,6 +31,7 @@ title <- "Das Infektionsschutzgesetz - WBK Kurs 17 - Ohne Lösungen"
 name <- "2022-01-31-IfSG-WBK"
 course <- "WBK 17"
 host <- "Akademie für öffentliches Gesundheitswesen" 
+prebasepath <- paste0("assets/", name, "/")
 basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/", name, "/")
 # basepath <- ""
 presentation_date <- "2022-01-31 08:30:00"
@@ -215,7 +216,7 @@ Bei einer Praxisbegehung: Der Arzt verwendet rostiges Werkzeug, hat falsches abg
 * Kriterien für die Aufhebung der Schließung darstellen. CAVE: Einhaltung von Richtlinien als Ziel 
 * Auf Begehung und Unterlagen bestanden. Zur Not Polzei rufen.
 * Ausführliches Protokoll erstellt, Photos mit Diensthandy gemacht
-* [Anordnung nach §16](`r paste0(basepath,"praxisschliessung.pdf")`) erstellt
+* <a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/praxisschliessung.pdf">Anordnung § 16</a> erstellt
 * Rücksprache mit Rechtsamt
 
 ## [§ 20a](https://www.gesetze-im-internet.de/ifsg/__20a.html)-Beispiel: Umsetzung der Impfpflicht
@@ -244,7 +245,7 @@ Eine Labor meldet eine Person mit Covid-19. Im selben Haushalt befindet sich noc
 
 ## Hinweise
 * Telefonische Ermittlung
-* [Anordnung nach § 28](`r paste0(basepath,"absonderung.pdf")`)
+* <a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/absonderung.pdf">Absonderung § 28</a> 
 * Empfehlungen des RKIs folgen
 
 ## [§ 34](https://www.gesetze-im-internet.de/ifsg/__34.html): Shigelloseausbruch
@@ -259,7 +260,7 @@ Einer Hygienekontrolleurin fällt auf, dass sie heute zwei Shigellose-Fälle hat
 * Ausbruchsfalldefinition festgelegt
 * TVs nach [Wiederzulassungstabelle §34](https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/Wiederzulassung/Wiederzulassung_Tabelle.pdf?__blob=publicationFile) angesetzt
 * Aushang und Informationsweitergabe durch die Kitaleitung (FAQ durch uns) 
-* [Maßnahmen](`r paste0(basepath,"shigellenausbruch.pdf")`) angeordnet 
+* <a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/shigellenausbruch.pdf">Anordnung Shigellenausbruch</a>
 * Keine Suche nach Personen mit riskantem Sexualverhalten 
 
 ## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Meldepflicht für E.Coli
