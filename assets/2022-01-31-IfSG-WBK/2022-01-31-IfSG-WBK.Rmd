@@ -18,7 +18,7 @@ output:
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-zeigeloesungenan <- FALSE
+zeigeloesungenan <- TRUE
 jekyllimage <- TRUE
 
 if (zeigeloesungenan) {
