@@ -18,7 +18,7 @@ output:
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-zeigeloesungenan <- FALSE
+zeigeloesungenan <- TRUE
 jekyllimage <- TRUE
 
 if (zeigeloesungenan) {
@@ -534,3 +534,6 @@ Nach § 16 ist es prinzipell möglich ein größeres Gebiet zu sperren. Die Maß
 * Was kann der Dozent besser machen? (Private Nachricht im Chat)
 
 # Vielen Dank fürs Zuhören
+* [merkblaetter-fuer-infektionskrankheiten.de/](https://merkblaetter-fuer-infektionskrankheiten.de/)
+* [WBK-Mitschrift](https://jakobschumacher.github.io/mitschrift_weiterbildungskurs/)
+* [Infektionsschutzkompendium](https://jakobschumacher.github.io/infektionsschutzkompendium/)
