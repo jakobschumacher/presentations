@@ -18,10 +18,16 @@ output:
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-zeigeloesungenan <- TRUE
+zeigeloesungenan <- FALSE
 jekyllimage <- TRUE
 
-title <- "Das Infektionsschutzgesetz - WBK Kurs 17"
+if (zeigeloesungenan) {
+title <- "Das Infektionsschutzgesetz - WBK Kurs 17 - Mit Lösungen"  
+} else
+{
+title <- "Das Infektionsschutzgesetz - WBK Kurs 17 - Ohne Lösungen"
+}
+
 name <- "2022-01-31-IfSG-WBK"
 course <- "WBK 17"
 host <- "Akademie für öffentliches Gesundheitswesen" 
