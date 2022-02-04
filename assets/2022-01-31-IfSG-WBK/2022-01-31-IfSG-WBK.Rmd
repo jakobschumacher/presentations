@@ -4,21 +4,36 @@ author: "Jakob Schumacher"
 date: "31. Januar 2022"
 output:
   revealjs::revealjs_presentation:
-    center: true
+    center: yes
     theme: dark
     transition: slide
-    self_contained: true
+    self_contained: yes
     reveal_options:
-      slideNumber: 'c/t' 
-      previewLinks: true
-      controls: true
-      progress: true
-      overview: true
-      controlsTutorial: true
+      slideNumber: c/t
+      previewLinks: yes
+      controls: yes
+      progress: yes
+      overview: yes
+      controlsTutorial: yes
+  word_document: default
+  pdf_document: default
+always_allow_html: yes
+params:
+  projektname: "2022-01-31-IfSG-WBK"
+  projekttitle: "Das Infektionsschutzgesetz"
+  course: "WBK 17"
+  host: "Akademie für öffentliches Gesundheitswesen" 
+  showsolutions: TRUE
+  
 ---
 
-```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
-zeigeloesungenan <- TRUE
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
+################## Load packages ######################
+Packages <- c("dplyr", "ggplot2", "lubridate", "readr", "here", "plotly")
+lapply(Packages, library, character.only = TRUE)
+       
+       
+zeigeloesungenan <- FALSE
 jekyllimage <- TRUE
 
 if (zeigeloesungenan) {
@@ -28,20 +43,13 @@ title <- "Das Infektionsschutzgesetz - WBK Kurs 17 - Mit Lösungen"
 title <- "Das Infektionsschutzgesetz - WBK Kurs 17 - Ohne Lösungen"
 }
 
-name <- "2022-01-31-IfSG-WBK"
-course <- "WBK 17"
-host <- "Akademie für öffentliches Gesundheitswesen" 
+name <- params$projektname
+course <- params$course
+host <- params$host
 prebasepath <- paste0("assets/", name, "/")
 basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/", name, "/")
 # basepath <- ""
 presentation_date <- "2022-01-31 08:30:00"
-
-suppressWarnings(suppressMessages(library(dplyr)))
-suppressWarnings(suppressMessages(library(lubridate)))
-suppressWarnings(suppressMessages(library(here)))
-suppressWarnings(suppressMessages(library(readr)))
-suppressWarnings(suppressMessages(library(ggplot2)))
-suppressWarnings(suppressMessages(library(plotly)))
 ```
 
 

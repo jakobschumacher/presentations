@@ -14,6 +14,7 @@ output:
       controls: false
       progress: true
       overview: true
+  word_document: default
 ---
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
@@ -26,12 +27,16 @@ library(readr)
 title <- "Gastroenteritis-Erreger am Beispiel E.Coli"
 name <- "2022-01-25-Gastroenteritis"
 presentation_date <- "2022-01-25 08:30:00"
+course <- "HygKo 67/68"
+host <- "Akademie für öffentliches Gesundheitswesen" 
 filename <- paste0(name, "/", name, ".html")
 
 tempfilewithpath <- paste0(name, "/", "tempfile.html")
 file.create(tempfilewithpath)
 write(paste0("---\ntitle: ", title), file=tempfilewithpath)
 write(paste0("date: ", presentation_date), file=tempfilewithpath, append = TRUE)
+write(paste0("course: ", course), file=tempfilewithpath, append = TRUE)
+write(paste0("host: ", host), file=tempfilewithpath, append = TRUE)
 write(paste0("---"), file=tempfilewithpath, append = TRUE)
 filedata <- read_file(filename)
 write(filedata, file=tempfilewithpath, append = TRUE)
@@ -43,9 +48,10 @@ file.remove(filename)
 
 Download und Link
 ========================================================
-[Online-Link](https://jakobschumacher.github.io/presentations/2022/01/25/Gastroenteritis.html#/)  
-[Download als PDF](`r paste0(basepath, "Gastroenteritis-Erreger am Beispiel E.Coli.pdf")`)
-
+[Download als PDF]("https://jakobschumacher.github.io/presentations/assets/2022-01-25-Gastroenteritis/2022-01-25-gastroenteritis-ecoli-jakob-schumacher.pdf")  
+[Download als Word]("https://jakobschumacher.github.io/presentations/assets/2022-01-25-Gastroenteritis/2022-01-25-Gastroenteritis.docx")  
+---  
+[Link https://jakobschumacher.github.io/presentations/](https://jakobschumacher.github.io/presentations/2022/01/25/Gastroenteritis.html#/)  
 
 
 Jakob Schumacher

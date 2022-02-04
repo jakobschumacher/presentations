@@ -1,0 +1,12 @@
+#nextsteps {
+   color: blue;
+}
+
+.emphasized {
+   font-size: 2em;
+}
+
+.solution {
+  display: none;
+  visibility: hidden;
+}
