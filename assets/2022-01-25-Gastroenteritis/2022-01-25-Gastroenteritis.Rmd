@@ -19,19 +19,18 @@ output:
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
 basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/2022-01-25-Gastroenteritis/")
-
+myname <- "2022-01-25-Gastroenteritis"
 ```
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
 library(readr)
 title <- "Gastroenteritis-Erreger am Beispiel E.Coli"
-name <- "2022-01-25-Gastroenteritis"
 presentation_date <- "2022-01-25 08:30:00"
 course <- "HygKo 67/68"
 host <- "Akademie für öffentliches Gesundheitswesen" 
-filename <- paste0(name, "/", name, ".html")
+filename <- paste0(myname, "/", myname, ".html")
 
-tempfilewithpath <- paste0(name, "/", "tempfile.html")
+tempfilewithpath <- paste0(myname, "/", "tempfile.html")
 file.create(tempfilewithpath)
 write(paste0("---\ntitle: ", title), file=tempfilewithpath)
 write(paste0("date: ", presentation_date), file=tempfilewithpath, append = TRUE)
@@ -41,17 +40,15 @@ write(paste0("---"), file=tempfilewithpath, append = TRUE)
 filedata <- read_file(filename)
 write(filedata, file=tempfilewithpath, append = TRUE)
 rm(filedata)
-file.copy(from = paste0(tempfilewithpath), to = paste0("../_posts/", name, ".html"), overwrite = TRUE)
+file.copy(from = paste0(tempfilewithpath), to = paste0("../_posts/", myname, ".html"), overwrite = TRUE)
 file.remove(tempfilewithpath)
 file.remove(filename)
 ```
 
-Download und Link
+Download 
 ========================================================
-[Download als PDF]("https://jakobschumacher.github.io/presentations/assets/2022-01-25-Gastroenteritis/2022-01-25-gastroenteritis-ecoli-jakob-schumacher.pdf")  
-[Download als Word]("https://jakobschumacher.github.io/presentations/assets/2022-01-25-Gastroenteritis/2022-01-25-Gastroenteritis.docx")  
----  
-[Link https://jakobschumacher.github.io/presentations/](https://jakobschumacher.github.io/presentations/2022/01/25/Gastroenteritis.html#/)  
+[Download als PDF](`r paste0(basepath,myname,".pdf")`)  
+[Download als Word](`r paste0(basepath,myname,".docx")`)  
 
 
 Jakob Schumacher
