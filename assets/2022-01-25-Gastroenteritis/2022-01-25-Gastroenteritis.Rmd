@@ -47,9 +47,9 @@ file.remove(filename)
 
 Download 
 ========================================================
-[Download als PDF](`r paste0(basepath,myname,".pdf")`)  
-<a href="`r paste0(basepath,myname,".pdf")`">Test</a>  
-[Download als Word](`r paste0(basepath,myname,".docx")`)  
+<a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-25-Gastroenteritis/2022-01-25-Gastroenteritis.pdf">Download als PDF</a>  
+<a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-25-Gastroenteritis/2022-01-25-Gastroenteritis.docx">Download als Word</a>
+
 
 
 Jakob Schumacher
