@@ -81,12 +81,9 @@ file.remove(filename)
 * Bitte Chat beachten  
 <small>Folien sind Thematisch nach unten sortiert (Pfeil nach unten)</small>
 
-# Download und Link
-[Download als PDF]("https://jakobschumacher.github.io/presentations/assets/2022-01-31-IfSG-WBK/2022-01-31-IfSG-WBK.pdf")  
-[Download als Word]("https://jakobschumacher.github.io/presentations/assets/2022-01-31-IfSG-WBK/2022-01-31-IfSG-WBK.docx")  
----  
-[Link https://jakobschumacher.github.io/presentations/](https://jakobschumacher.github.io/presentations/)  
-
+# Download 
+[Download als PDF](`r paste0(basepath,"2022-01-31-IfSG-WBK.pdf")`)  
+[Download als Word](`r paste0(basepath,"2022-01-31-IfSG-WBK.docx")`)  
 
 # Powersätze
 * _Wir dürfen alles nach § 16_
