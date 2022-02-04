@@ -82,8 +82,8 @@ file.remove(filename)
 <small>Folien sind Thematisch nach unten sortiert (Pfeil nach unten)</small>
 
 # Download 
-[Download als PDF](`r paste0(basepath,"2022-01-31-IfSG-WBK.pdf")`)  
-[Download als Word](`r paste0(basepath,"2022-01-31-IfSG-WBK.docx")`)  
+<a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/2022-01-31-IfSG-WBK.pdf">Download als PDF</a>  
+<a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/2022-01-31-IfSG-WBK.docx">Download als Word</a>
 
 # Powersätze
 * _Wir dürfen alles nach § 16_
