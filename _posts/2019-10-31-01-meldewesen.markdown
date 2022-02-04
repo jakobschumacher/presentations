@@ -5,7 +5,7 @@ id: 2019-10-31-01
 date:   2019-10-31 14:00:00
 author: "Jakob Schumacher"
 place: "Komturstr. 18A, Berlin"
-course: "Hygko 66"
+course: "HygKo 66"
 host: "Akademie für öffentliches Gesundheitswesen"
 ---
 
