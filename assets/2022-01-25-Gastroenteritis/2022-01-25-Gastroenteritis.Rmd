@@ -48,6 +48,7 @@ file.remove(filename)
 Download 
 ========================================================
 [Download als PDF](`r paste0(basepath,myname,".pdf")`)  
+<a href="`r paste0(basepath,myname,".pdf")`">Test</a>  
 [Download als Word](`r paste0(basepath,myname,".docx")`)  
 
 
