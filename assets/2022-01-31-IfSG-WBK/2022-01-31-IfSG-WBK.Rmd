@@ -19,7 +19,6 @@ output:
   pdf_document: default
 always_allow_html: yes
 params:
-  
   projektname: "2022-01-31-IfSG-WBK"
   projekttitle: "Das Infektionsschutzgesetz"
   course: "WBK 17"

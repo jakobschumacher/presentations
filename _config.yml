@@ -8,6 +8,7 @@ url: "https://jakobschumacher.github.io/" # the base hostname & protocol for you
 
 exclude:
 - "*.Rmd"
+- "assets/2022-03-11-Arden-Surveillance/Preparation.md"
 #- assets/2022-01-25-Gastroenteritis
 #- assets/2022-01-31-IfSG-WBK
 
