@@ -1,0 +1,331 @@
+---
+title: "Gastroenteritis-Erreger am Beispiel E.Coli"
+author: "Jakob Schumacher"
+date: "08. April 2022"
+output:
+  revealjs::revealjs_presentation:
+    center: yes
+    theme: dark
+    transition: slide
+    self_contained: yes
+    reveal_options:
+      slideNumber: c/t
+      previewLinks: yes
+      controls: yes
+      progress: yes
+      overview: yes
+      chalkboard:
+        theme: whiteboard
+        toggleNotesButton: no
+      menu:
+        side: right
+  pdf_document: default
+  html_document: default
+  word_document: default
+params:
+  presentation_title: Gastroenteritis-Erreger am Beispiel E.Coli
+  run_local: no
+  presentation_date: 08.04.2022
+  place: online
+  course: WBKD-01
+  host: Akademie für öffentliches Gesundheitswesen
+  permalink: 2022-04-08-WBKD-Gastroenteritis
+  target_audience: Amtsärztinnen und Amtsärzte
+---
+
+```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
+library(qrcode)
+library(readr)
+library(tidyverse)
+library(here)
+
+# Picture credits
+pic <- list()
+pic$eins <- c(url = "https://unsplash.com/photos/13UugSL9q7A", credit = "Michael Schiffer")
+pic$zwei <- c(url = "https://www.researchgate.net/profile/John-Oller/publication/335404504/figure/fig11/AS:796256146309121@1566853667699/4-A-micrograph-of-Escherichia-Coli-E-Coli-bacteria-Source-Courtesy-of-Janice-Haney.png",
+  credit = "Janice Haney Carr, National Escherichia, Shigella, Vibrio Reference Unit at CDC, USCDCP")
+
+
+# Check 
+if(params$run_local){
+  basepath <- paste0("../assets/", params$permalink, "/")
+} else {
+  basepath <- paste0("{{ site.url }}{{ site.baseurl }}/assets/", params$permalink, "/")
+}
+
+imagepath <- paste0("../assets/", params$permalink, "/")
+
+# Generate links
+onlinelink <- paste0("https://github.com/jakobschumacher/presentations/", params$permalink)
+pdflink <- paste0("https://raw.githubusercontent.com/jakobschumacher/presentations/master/assets/", params$permalink, ".pdf?raw=true")
+doclink <- paste0("https://raw.githubusercontent.com/jakobschumacher/presentations/master/assets/", params$permalink, ".docx?raw=true")
+
+# Generate the QR-Codes
+generate_svg(qr_code(onlinelink), filename = paste0("../assets/", params$permalink, "/QR-link.svg"), size = 150, foreground = "black", background = "transparent", show = FALSE)
+generate_svg(qr_code(pdflink), filename = paste0("../assets/", params$permalink, "/QR-pdf.svg"), size = 150, foreground = "black", background = "transparent", show = FALSE)
+generate_svg(qr_code(doclink), filename = paste0("../assets/", params$permalink, "/QR-doc.svg"), size = 150, foreground = "black", background = "transparent", show = FALSE)
+
+```
+
+```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
+# This code needs to be run once, after the presentation is ready and the presentation lies in the same folder as this code
+tempfilewithpath <- "tempfile.html" 
+file.create(tempfilewithpath)
+filedata <- read_file(here("_code/", paste0(params$permalink, ".html")))
+write(paste0("---\ntitle: ", params$presentation_title), file=tempfilewithpath)
+write(paste0("date: ", params$presentation_date), file=tempfilewithpath, append = TRUE)
+write(paste0("course: ", params$course), file=tempfilewithpath, append = TRUE)
+write(paste0("host: ", params$host), file=tempfilewithpath, append = TRUE)
+write(paste0("permalink: ", params$permalink, "/"), file=tempfilewithpath, append = TRUE)
+write(paste0("---"), file=tempfilewithpath, append = TRUE)
+write(filedata, file=tempfilewithpath, append = TRUE)
+file.copy(from = paste0(tempfilewithpath), to = here("_posts/", paste0(params$permalink, ".html")), overwrite = TRUE)
+file.remove(tempfilewithpath)
+```
+
+# Gastroenteritis-Erreger am Beispiel E.Coli {data-background='https://images.unsplash.com/photo-1535127022272-dbe7ee35cf33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'} 
+
+Jakob Schumacher
+
+## Über den Vortrag
+<small>
+Dies ist ein Vortrag von Jakob Schumacher für den Kurs: `r params$course` `r params$host` . Die Zielgruppe sind `r params$target_audience`. Der Vortrag wurde am `r params$presentation_date` gehalten.    
+
+<table>
+<tr>
+<td>Online</td>
+<td>PDF</td>
+<td>Word</td>
+</tr>
+<tr>
+<td><a href="`r onlinelink`">![Online-Link](`r paste0(imagepath, "QR-link.svg")`)</a></td>
+<td><a href="`r pdflink`">![PDF-Link](`r paste0(imagepath, "QR-pdf.svg")`)</a></td>
+<td><a href="`r doclink`">![DOC-Link](`r paste0(imagepath, "QR-doc.svg")`)</a></td>
+</tr>
+</table>
+Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio](https://www.rstudio.com/). Die Präsentationswebseite läuft mit [Jekyll](https://jekyllrb.com/). 
+
+
+<a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/2022-01-31-IfSG-WBK.pdf">Download als PDF</a>  
+
+
+</small>
+
+
+## Über mich
+- Hygienereferent im Gesundheitsamt Reinickendorf
+- Zuvor: 
+  - Robert Koch-Institut
+  - Bundesministerium für Gesundheit 
+  - Medizin (Krankenhaus, Gefängnis)
+- Projekte:
+  - [Infektionsschutzkompendium](https://jakobschumacher.github.io/infektionsschutzkompendium/)
+  - [Merkblätter für Infektionskrankheiten](http://merkblaetter-fuer-infektionskrankheiten.de/)
+
+# Teil 1: Rolle der Gesundheitsämter   {data-background="https://images.unsplash.com/photo-1618759007563-5fc2bc1386a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"}
+
+
+## Malerische Beschreibung
+
+## Aufgabe der Gesundheitsämter im Infektionsschutz
+
+
+## Aufgaben der Amtsleitung/Infektionsschutzleitung
+- Methoden erarbeiten/trainieren
+- Maßnahmen hochhalten
+- Ausbruchserkennung organisieren
+- Krisenvorbereitung
+- Netzwerk pflegen
+- Hintergrundwissen Mikrobiologie
+- Personal aquirieren/schulen
+
+
+
+# Teil 2 Überblick  {data-background="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1672&q=80"}
+
+## Überblilck über Gastroenteritis Erreger 
+* Norovirus
+* Rotavirus
+* Salmonellen
+* Campylobacter
+* Shigellen
+* E.Coli
+* Yersiniose
+* Listeriose
+* Giardia
+* Kryptosporidiose
+
+## Die wichtigsten Punkte
+* Gestroenteritis-Erreger sind häufig
+* Durchfall ist "gemeinsame Endstrecke" von Viren, Bakterien, Parasiten
+* Großer Killer der Welt: 1,3 Mio (bei 2 Milliarden Infizierten)
+* Gastroenteritis-Erreger Vorbeugung: Wassermanagement, Toiletten, Landwirtschaft
+* In Deutschland größte Gefahr durch: EHEC/HUS
+* Bei der Ermittlung: Ausbrüche bedenken
+* Zusammenarbeit mit Lebensmittelaufsicht
+* Norovirus ist ein Indikator für Hygiene
+
+## Der Darm
+* 4-5 Meter lang
+* Enthält 1-2 Kilogramm Bakterien (Mikrobiom)
+* Wichtigste Aufgabe: Verdauung, Immunabwehr und ?
+* Das Mikrobiom spielt eine größere Rolle als bislang gedacht
+
+## Was muss man zu einem Erreger wissen
+1. Namen des Erregers und Krankheit
+1. Epidemiologie
+1. Vorkommen
+1. Umweltverhalten
+1. Übertragungswege
+1. Zeiten
+1. Labornachweise
+1. Meldepflichten
+1. Infektionsinterview-Fragen
+1. Maßnahmen
+
+# Teil 3 {data-background="https://images.unsplash.com/photo-1572884267966-02340ebc90ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"}
+E.Coli und seine Krankheiten
+
+## Überblick über E.Coli
+* Coliforme Erreger
+  * E.Coli
+    * ETEC
+    * EPEC
+    * EIEC
+    * EAEC
+    * EHEC
+    * MRGN
+* Je nach Toxin unterschiedliche Krankheitsbilder
+
+
+## E.Coli als Symbiont
+* Hilft mit bei der Nahrungsaufspaltung
+* Produziert Vitamine (B-Vitamine, K-Vitamin)
+
+## E.Coli als Pathogen
+* Gastroenteritis
+* Infektionen
+* HUS
+* (Indikatorkeim)
+
+## Gastroenteritis-Symptome
+* Krankheitsgefühl
+* Bauchschmerzen
+* Durchfall
+* Erbrechen
+* Schmerzen
+* Erkältungssymptome (Bei Erkältung auch Gastroenteritis)
+* Fieber (Zeichen für Immunaktivität)
+* Blut im Stuhl (Zeichen für Invastion)
+* Exsikkose 
+
+
+## Hämolytisch-Urämische Symptome (HUS)
+* Anämie (Blutarmut)
+* Urämie (Nierenversagen)
+* Thrombozytopenie (Blutung)
+* Neurologische Symptome
+
+## Infektionen
+* Wundinfektion
+* Harnwegsinfektionen
+* Sepsis
+
+## E.Coli und die Toxine
+* E.Coli hat diverse Mechanismen/Toxine
+* Manche Mechanismen schützen vor Antibiotika
+* Manche Mechanismen verursachen eine besser Anheftung oder Eindringung in die Zelle
+* Shigatoxin 2 (nur EHEC) verursacht ein HUS
+
+## Epidemiologie
+* Massive Inzidenzen in Ländern mit hygienisch niedrigen Standards
+* Deutschland
+  * ~10.000 E.Coli-Enteritis
+  * ~1000 Ehec
+  * ~100 HUS
+* Kinder und Reiserückkehrer
+
+## Vorkommen
+* E.Coli lebt im Enddarm von vielen Warmblütern
+* Weltweit vertreten
+* EHEC vor allem in Wiederkäuern: Rinder, Schafe, Ziegen
+
+## Umweltverhalten
+* E.Coli lebt im Darm von Tieren 
+* Von dort auf das Fell und die Umgebung
+* Vom Fell beim Schlachten aufs Fleisch
+* Vom Fell auf die Hand
+* Vom Darm auf die Felder
+* Vom Darm ins Wasser 
+* Vom Wasser aufs Feld
+
+
+## Wichtigste Übertragung auf Menschen
+* Kontaktinfektion (Schmierinfektion, Fäkal-Oral, Händeinfektion)
+* Lebensmittel
+* Trinkwasser
+
+## Zeiten
+* Inkubationszeit: 2-10 Tage
+* Ansteckungsfähige Zeit: Solange Symptome bestehen. Aber Dauerausscheidung möglich 
+
+
+## Labornachweise
+* Kultur (Goldstandard)
+* PCR (Weißt die Gene nach)
+* ELISA (Weißt die Toxine nach)
+* Genomsequenzierung 
+
+## E.Coli erscheint als folgende Meldung
+* HUS (Arzt)
+* EHEC (Labor)
+* E.Coli-Enteritis (Labor, [§34](https://www.gesetze-im-internet.de/ifsg/__34.html), [§36](https://www.gesetze-im-internet.de/ifsg/__36.html))
+* Wasserkeim (TrinkWV)
+* MRGN (Labor)
+* Wundinfektionskeim (Fehlmeldung)
+
+## Maßnahmen EHEC I
+* Informationsbeschaffung, Übermittlung, Informationsweitergabe (Lebensmittelaufsicht)
+* Ausbruchsuntersuchung
+* Aufklärung
+  * Erreger
+  * Küchenhygiene
+  * Toilettenhygiene.
+  * Händehygiene
+  * Wäschehygiene
+  * Lebensmittelhygiene auf Reisen
+  * Streichelzoo
+
+## Maßnahmen EHEC II
+* Isolierung der erkrankten Person in einer Einrichtung
+* Tätigkeitsverbot nach § 34
+* Tätigkeitsverbot nach § 42
+
+## Infektionsinterview-Fragen I
+* Wie geht es Ihnen? (!)
+* Welche Krankheitszeichen sind bei Ihnen aufgetreten?
+* Wann hat die Erkrankung genau begonnen?
+* Sind in Ihrem Umfeld weitere Personen erkrankt?
+* Haben Sie eine Verbindung zu einer Kita oder ähnlichen Einrichtung?
+* Haben Sie eine Verbindung zu einer Einrichtung, in der sehr viele Menschen untergebracht sind?
+
+## Infektionsinterview-Fragen II
+* Wohnen Sie mit jemand zusammen, der in eine Kita oder Schule geht oder dort arbeitet?
+* Haben Sie beruflich mit Lebensmitteln zu tun?
+* Waren Sie vor der Erkrankung im Ausland?
+* Waren sie vor Erkrankungsbeginn im Kontakt mit Wiederkäuern? 
+
+
+# Teil 4: Gruppenarbeit {data-background="https://images.unsplash.com/photo-1460518451285-97b6aa326961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"}
+
+# Teil 5 {data-background="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80"}
+
+
+Wichtige Links
+========================================================
+* <a href="https://jakobschumacher.github.io/infektionsschutzkompendium">Infektionsschutzkompendium<a>
+* <a href="https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/merkblaetter_node.html">RKI-Ratgeber<a>
+* <a href="https://www.bfr.bund.de/de/lebensmittelhygiene-54338.html">Lebensmittelhygiene BFR<a>
+* <a href="https://www.auswaertiges-amt.de/de/ReiseUndSicherheit/reise-und-sicherheitshinweise">Reisewarnungen des Auswärtigen Amtes<a>
+
+  
