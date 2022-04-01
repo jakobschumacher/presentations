@@ -19,12 +19,12 @@ output:
         toggleNotesButton: no
       menu:
         side: right
-  pdf_document: default
-  html_document: default
   word_document: default
+  html_document: default
+  pdf_document: default
 params:
   presentation_title: Gastroenteritis-Erreger am Beispiel E.Coli
-  run_local: no
+  run_local: FALSE
   presentation_date: 08.04.2022
   place: online
   course: WBKD-01
@@ -57,8 +57,8 @@ imagepath <- paste0("../assets/", params$permalink, "/")
 
 # Generate links
 onlinelink <- paste0("https://github.com/jakobschumacher/presentations/", params$permalink)
-pdflink <- paste0("https://raw.githubusercontent.com/jakobschumacher/presentations/master/assets/", params$permalink, ".pdf?raw=true")
-doclink <- paste0("https://raw.githubusercontent.com/jakobschumacher/presentations/master/assets/", params$permalink, ".docx?raw=true")
+pdflink <- paste0(basepath, params$permalink, ".pdf")
+doclink <- paste0(basepath, params$permalink, ".docx")
 
 # Generate the QR-Codes
 generate_svg(qr_code(onlinelink), filename = paste0("../assets/", params$permalink, "/QR-link.svg"), size = 150, foreground = "black", background = "transparent", show = FALSE)
@@ -68,29 +68,22 @@ generate_svg(qr_code(doclink), filename = paste0("../assets/", params$permalink,
 ```
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
-# This code needs to be run once, after the presentation is ready and the presentation lies in the same folder as this code
-tempfilewithpath <- "tempfile.html" 
-file.create(tempfilewithpath)
-filedata <- read_file(here("_code/", paste0(params$permalink, ".html")))
-write(paste0("---\ntitle: ", params$presentation_title), file=tempfilewithpath)
-write(paste0("date: ", params$presentation_date), file=tempfilewithpath, append = TRUE)
-write(paste0("course: ", params$course), file=tempfilewithpath, append = TRUE)
-write(paste0("host: ", params$host), file=tempfilewithpath, append = TRUE)
-write(paste0("permalink: ", params$permalink, "/"), file=tempfilewithpath, append = TRUE)
-write(paste0("---"), file=tempfilewithpath, append = TRUE)
-write(filedata, file=tempfilewithpath, append = TRUE)
-file.copy(from = paste0(tempfilewithpath), to = here("_posts/", paste0(params$permalink, ".html")), overwrite = TRUE)
-file.remove(tempfilewithpath)
+# source("_code/presentation_funtions.R")
+# move_presentation_to_posts()
+# move_pdf_docx_to_assets()
 ```
 
 # Gastroenteritis-Erreger am Beispiel E.Coli {data-background='https://images.unsplash.com/photo-1535127022272-dbe7ee35cf33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'} 
 
 Jakob Schumacher
 
-## Über den Vortrag
-<small>
+# Über den Vortrag
+<small><left>
 Dies ist ein Vortrag von Jakob Schumacher für den Kurs: `r params$course` `r params$host` . Die Zielgruppe sind `r params$target_audience`. Der Vortrag wurde am `r params$presentation_date` gehalten.    
 
+Bedienungsanleitung: Der Vortrag ist eine Webseite. Die einzelnen Themenblöcke sind in Spalten organisiert. Mit den Pfeiltasten kommt man nach oben, unten, rechts und links. Mit *Esc* kann man sich eine Übersicht anzeigen lassen.
+
+Wie kann man an den Vortrag kommen? Er ist dauerhaft online verfügbar unter [https://jakobschumacher.github.io/presentations/](https://jakobschumacher.github.io/presentations/). Er ist als PDf oder als Word-Datei herunterladbar. Beispielsweise kann man mit dem Smartphone   
 <table>
 <tr>
 <td>Online</td>
@@ -105,11 +98,7 @@ Dies ist ein Vortrag von Jakob Schumacher für den Kurs: `r params$course` `r pa
 </table>
 Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio](https://www.rstudio.com/). Die Präsentationswebseite läuft mit [Jekyll](https://jekyllrb.com/). 
 
-
-<a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/2022-01-31-IfSG-WBK.pdf">Download als PDF</a>  
-
-
-</small>
+<left></small>
 
 
 ## Über mich
@@ -125,19 +114,24 @@ Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio]
 # Teil 1: Rolle der Gesundheitsämter   {data-background="https://images.unsplash.com/photo-1618759007563-5fc2bc1386a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"}
 
 
-## Malerische Beschreibung
+## {data-background="`r paste0(imagepath, "watchtower3.jpg")`"}
 
-## Aufgabe der Gesundheitsämter im Infektionsschutz
+## Vorbeugen, erkennen, verhindern (IfSG § 1)
+1.    Gefahrenvorbeugung (IfSG § 16)
+1.    Wissenschaft (IfSG § 4)
+1.    Gefahrenerkennung (IfSG § 25, IHR § 5)
+1.    Meldungen sammeln (IfSG § 6-11)
+1.    Informationsweitergabe (IfSG § 27)
+1.    Gefahrenabwehr (IfSG § 28)
 
-
-## Aufgaben der Amtsleitung/Infektionsschutzleitung
-- Methoden erarbeiten/trainieren
-- Maßnahmen hochhalten
-- Ausbruchserkennung organisieren
-- Krisenvorbereitung
-- Netzwerk pflegen
-- Hintergrundwissen Mikrobiologie
-- Personal aquirieren/schulen
+## Aufgaben der Leitung
+1. Maßnahmen hochhalten
+1. Methoden erarbeiten/trainieren
+1. Ausbruchserkennung organisieren
+1. Netzwerk pflegen
+1. Hintergrundwissen Mikrobiologie
+1. Personal aquirieren/schulen
+1. Krankheiten strategisch vorbeugen
 
 
 
@@ -173,71 +167,28 @@ Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio]
 
 ## Was muss man zu einem Erreger wissen
 1. Namen des Erregers und Krankheit
-1. Epidemiologie
-1. Vorkommen
-1. Umweltverhalten
-1. Übertragungswege
-1. Zeiten
-1. Labornachweise
-1. Meldepflichten
+2. Epidemiologie
+3. Vorkommen
+4. Umweltverhalten
+5. Übertragungswege
+6. Zeiten
+7. Labornachweise
+8. Meldepflichten
 1. Infektionsinterview-Fragen
 1. Maßnahmen
 
 # Teil 3 {data-background="https://images.unsplash.com/photo-1572884267966-02340ebc90ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"}
 E.Coli und seine Krankheiten
 
-## Überblick über E.Coli
-* Coliforme Erreger
-  * E.Coli
-    * ETEC
-    * EPEC
-    * EIEC
-    * EAEC
-    * EHEC
-    * MRGN
-* Je nach Toxin unterschiedliche Krankheitsbilder
-
-
-## E.Coli als Symbiont
-* Hilft mit bei der Nahrungsaufspaltung
-* Produziert Vitamine (B-Vitamine, K-Vitamin)
-
-## E.Coli als Pathogen
-* Gastroenteritis
-* Infektionen
-* HUS
-* (Indikatorkeim)
-
-## Gastroenteritis-Symptome
-* Krankheitsgefühl
-* Bauchschmerzen
-* Durchfall
-* Erbrechen
-* Schmerzen
-* Erkältungssymptome (Bei Erkältung auch Gastroenteritis)
-* Fieber (Zeichen für Immunaktivität)
-* Blut im Stuhl (Zeichen für Invastion)
-* Exsikkose 
-
-
-## Hämolytisch-Urämische Symptome (HUS)
-* Anämie (Blutarmut)
-* Urämie (Nierenversagen)
-* Thrombozytopenie (Blutung)
-* Neurologische Symptome
-
-## Infektionen
-* Wundinfektion
-* Harnwegsinfektionen
-* Sepsis
-
-## E.Coli und die Toxine
-* E.Coli hat diverse Mechanismen/Toxine
-* Manche Mechanismen schützen vor Antibiotika
-* Manche Mechanismen verursachen eine besser Anheftung oder Eindringung in die Zelle
+## 1. Namen und Krankheiten des Erregers: E.Coli
+* Coliformer, E.Coli, ETEC, EPEC, EIEC, EAEC, EHEC, MRGN
+* Symbiont: Hilft bei Nahrungsaufspaltung, produziert Vitamine
+* Pathovar: Gastroenteritis, Infektionen, HUS, (Indikatorkeim)
+* E.Coli hat diverse Mechanismen/Toxine (Antibiotika, Anheftung, Eindringung)
 * Shigatoxin 2 (nur EHEC) verursacht ein HUS
 
-## Epidemiologie
+
+## 2. Epidemiologie
 * Massive Inzidenzen in Ländern mit hygienisch niedrigen Standards
 * Deutschland
   * ~10.000 E.Coli-Enteritis
@@ -245,12 +196,12 @@ E.Coli und seine Krankheiten
   * ~100 HUS
 * Kinder und Reiserückkehrer
 
-## Vorkommen
+## 3. Vorkommen
 * E.Coli lebt im Enddarm von vielen Warmblütern
 * Weltweit vertreten
 * EHEC vor allem in Wiederkäuern: Rinder, Schafe, Ziegen
 
-## Umweltverhalten
+## 4. Umweltverhalten
 * E.Coli lebt im Darm von Tieren 
 * Von dort auf das Fell und die Umgebung
 * Vom Fell beim Schlachten aufs Fleisch
@@ -260,23 +211,23 @@ E.Coli und seine Krankheiten
 * Vom Wasser aufs Feld
 
 
-## Wichtigste Übertragung auf Menschen
+## 5. Wichtigste Übertragung auf Menschen
 * Kontaktinfektion (Schmierinfektion, Fäkal-Oral, Händeinfektion)
 * Lebensmittel
 * Trinkwasser
 
-## Zeiten
+## 6. Zeiten
 * Inkubationszeit: 2-10 Tage
 * Ansteckungsfähige Zeit: Solange Symptome bestehen. Aber Dauerausscheidung möglich 
 
 
-## Labornachweise
+## 7. Labornachweise
 * Kultur (Goldstandard)
 * PCR (Weißt die Gene nach)
 * ELISA (Weißt die Toxine nach)
 * Genomsequenzierung 
 
-## E.Coli erscheint als folgende Meldung
+## 8. E.Coli erscheint als folgende Meldung
 * HUS (Arzt)
 * EHEC (Labor)
 * E.Coli-Enteritis (Labor, [§34](https://www.gesetze-im-internet.de/ifsg/__34.html), [§36](https://www.gesetze-im-internet.de/ifsg/__36.html))
@@ -284,7 +235,7 @@ E.Coli und seine Krankheiten
 * MRGN (Labor)
 * Wundinfektionskeim (Fehlmeldung)
 
-## Maßnahmen EHEC I
+## 9. Maßnahmen EHEC I
 * Informationsbeschaffung, Übermittlung, Informationsweitergabe (Lebensmittelaufsicht)
 * Ausbruchsuntersuchung
 * Aufklärung
@@ -296,12 +247,12 @@ E.Coli und seine Krankheiten
   * Lebensmittelhygiene auf Reisen
   * Streichelzoo
 
-## Maßnahmen EHEC II
+## 9. Maßnahmen EHEC II
 * Isolierung der erkrankten Person in einer Einrichtung
 * Tätigkeitsverbot nach § 34
 * Tätigkeitsverbot nach § 42
 
-## Infektionsinterview-Fragen I
+## 10. Infektionsinterview-Fragen I
 * Wie geht es Ihnen? (!)
 * Welche Krankheitszeichen sind bei Ihnen aufgetreten?
 * Wann hat die Erkrankung genau begonnen?
@@ -309,7 +260,7 @@ E.Coli und seine Krankheiten
 * Haben Sie eine Verbindung zu einer Kita oder ähnlichen Einrichtung?
 * Haben Sie eine Verbindung zu einer Einrichtung, in der sehr viele Menschen untergebracht sind?
 
-## Infektionsinterview-Fragen II
+## 10. Infektionsinterview-Fragen II
 * Wohnen Sie mit jemand zusammen, der in eine Kita oder Schule geht oder dort arbeitet?
 * Haben Sie beruflich mit Lebensmitteln zu tun?
 * Waren Sie vor der Erkrankung im Ausland?
