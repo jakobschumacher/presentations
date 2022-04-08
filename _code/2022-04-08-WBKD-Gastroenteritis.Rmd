@@ -197,6 +197,9 @@ E.Coli und seine Krankheiten
   * ~100 HUS
 * Kinder und Reiserückkehrer
 
+## 2. Epidemiologie
+Meldedaten kann man bei [Survstat](https://survstat.rki.de/) abfragen
+
 ## 3. Vorkommen
 * E.Coli lebt im Enddarm von vielen Warmblütern
 * Weltweit vertreten
