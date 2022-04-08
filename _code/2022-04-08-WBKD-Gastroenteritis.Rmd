@@ -229,8 +229,8 @@ Meldedaten kann man bei [Survstat](https://survstat.rki.de/) abfragen
 
 ## 7. Labornachweise
 * Kultur (Goldstandard)
-* PCR (Weißt die Gene nach)
-* ELISA (Weißt die Toxine nach)
+* PCR (Weist die Gene nach)
+* ELISA (Weist die Toxine nach)
 * Genomsequenzierung 
 
 ## 8. E.Coli erscheint als folgende Meldung
@@ -281,6 +281,16 @@ Meldedaten kann man bei [Survstat](https://survstat.rki.de/) abfragen
 * Beispiele für typische Infektionsschutzprobleme: EHEC-Ausbruch, SARS-CoV-2-Beginn, Norovirus-Ausbruch Berlin 
 * Aufteilung in Gruppen a 4-5 Teilnehmer
 
+## Ideen aus der Gruppe
+* Regelmäßige Fallkonferenzen/Problemanalyse
+* Interne Richtlinien für Erreger festlegen
+* Lagebericht (möglicherweise automatisiert), Softwarerückmeldung
+* Konferenzen (z.B. wöchentliche sächsische Landeskonferenz)
+* Schulung von Einrichtung im Vorfeld
+* Strukturierte Zuständigkeit
+* Fehlerbox
+
+
 # Teil 5: Zusatz {data-background="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80"}
 
 ## [Infektionsschutzkompendium](https://jakobschumacher.github.io/infektionsschutzkompendium)
@@ -297,4 +307,14 @@ Wer noch weiter lesen will:
 ## Danksagung
 <div style="margin:10px; font-size:60%; text-align:left">
 Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio](https://www.rstudio.com/). Die Präsentationswebseite läuft mit [Jekyll](https://jekyllrb.com/). Das Hosting erfolgt auf [Github](https://github.com).
+Bilder von [Unsplash.com](https://unsplash.com/)
 </div>
+
+
+
+
+
+
+
+
+
