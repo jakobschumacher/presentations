@@ -68,9 +68,9 @@ generate_svg(qr_code(doclink), filename = paste0("../assets/", params$permalink,
 ```
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
-# source("_code/presentation_funtions.R")
-# move_presentation_to_posts()
-# move_pdf_docx_to_assets()
+source("_code/presentation_funtions.R")
+move_presentation_to_posts()
+move_pdf_docx_to_assets()
 ```
 
 # Gastroenteritis-Erreger am Beispiel E.Coli {data-background='https://images.unsplash.com/photo-1535127022272-dbe7ee35cf33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'} 
@@ -78,27 +78,28 @@ generate_svg(qr_code(doclink), filename = paste0("../assets/", params$permalink,
 Jakob Schumacher
 
 # Über den Vortrag
-<small><left>
+<div style="margin:10px; font-size:60%; text-align:left">
 Dies ist ein Vortrag von Jakob Schumacher für den Kurs: `r params$course` `r params$host` . Die Zielgruppe sind `r params$target_audience`. Der Vortrag wurde am `r params$presentation_date` gehalten.    
 
 Bedienungsanleitung: Der Vortrag ist eine Webseite. Die einzelnen Themenblöcke sind in Spalten organisiert. Mit den Pfeiltasten kommt man nach oben, unten, rechts und links. Mit *Esc* kann man sich eine Übersicht anzeigen lassen.
 
-Wie kann man an den Vortrag kommen? Er ist dauerhaft online verfügbar unter [https://jakobschumacher.github.io/presentations/](https://jakobschumacher.github.io/presentations/). Er ist als PDf oder als Word-Datei herunterladbar. Beispielsweise kann man mit dem Smartphone   
-<table>
-<tr>
-<td>Online</td>
-<td>PDF</td>
-<td>Word</td>
-</tr>
-<tr>
-<td><a href="`r onlinelink`">![Online-Link](`r paste0(imagepath, "QR-link.svg")`)</a></td>
-<td><a href="`r pdflink`">![PDF-Link](`r paste0(imagepath, "QR-pdf.svg")`)</a></td>
-<td><a href="`r doclink`">![DOC-Link](`r paste0(imagepath, "QR-doc.svg")`)</a></td>
-</tr>
-</table>
-Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio](https://www.rstudio.com/). Die Präsentationswebseite läuft mit [Jekyll](https://jekyllrb.com/). 
+Der Vortrag ist dauerhaft online frei verfügbar unter [https://jakobschumacher.github.io/presentations/](https://jakobschumacher.github.io/presentations/). 
 
-<left></small>
+<!-- Er ist auch als <a href="`r pdflink`">PDF</a> oder als <a href="`r doclink`">Word-Datei</a> herunterladbar. -->
+<!-- <table> -->
+<!-- <tr> -->
+<!-- <td>Online</td> -->
+<!-- <td>PDF</td> -->
+<!-- <td>Word</td> -->
+<!-- </tr> -->
+<!-- <tr> -->
+<!-- <td><a href="`r onlinelink`">![Online-Link](`r paste0(imagepath, "QR-link.svg")`)</a></td> -->
+<!-- <td><a href="`r pdflink`">![PDF-Link](`r paste0(imagepath, "QR-pdf.svg")`)</a></td> -->
+<!-- <td><a href="`r doclink`">![DOC-Link](`r paste0(imagepath, "QR-doc.svg")`)</a></td> -->
+<!-- </tr> -->
+<!-- </table> -->
+
+<div>
 
 
 ## Über mich
@@ -134,7 +135,6 @@ Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio]
 1. Krankheiten strategisch vorbeugen
 
 
-
 # Teil 2 Überblick  {data-background="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1672&q=80"}
 
 ## Überblilck über Gastroenteritis Erreger 
@@ -159,9 +159,7 @@ Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio]
 * Zusammenarbeit mit Lebensmittelaufsicht
 * Norovirus ist ein Indikator für Hygiene
 
-## Der Darm
-* 4-5 Meter lang
-* Enthält 1-2 Kilogramm Bakterien (Mikrobiom)
+## Der Darm und das Mikrobiom {data-background="https://cdn.pixabay.com/photo/2019/08/18/09/00/intestine-4413737_960_720.jpg"}
 * Wichtigste Aufgabe: Verdauung, Immunabwehr und ?
 * Das Mikrobiom spielt eine größere Rolle als bislang gedacht
 
@@ -176,6 +174,9 @@ Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio]
 8. Meldepflichten
 1. Infektionsinterview-Fragen
 1. Maßnahmen
+
+## Kurzwiederholung: Was haben Sie sich bislang gemerkt?
+
 
 # Teil 3 {data-background="https://images.unsplash.com/photo-1572884267966-02340ebc90ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"}
 E.Coli und seine Krankheiten
@@ -249,7 +250,7 @@ E.Coli und seine Krankheiten
 
 ## 9. Maßnahmen EHEC II
 * Isolierung der erkrankten Person in einer Einrichtung
-* Tätigkeitsverbot nach § 34
+* [Tätigkeitsverbot nach § 34](https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/Wiederzulassung/Wiederzulassung_Tabelle.pdf?__blob=publicationFile)
 * Tätigkeitsverbot nach § 42
 
 ## 10. Infektionsinterview-Fragen I
@@ -266,17 +267,29 @@ E.Coli und seine Krankheiten
 * Waren Sie vor der Erkrankung im Ausland?
 * Waren sie vor Erkrankungsbeginn im Kontakt mit Wiederkäuern? 
 
+## Kurzwiederholung: Was haben Sie sich bislang gemerkt?
 
 # Teil 4: Gruppenarbeit {data-background="https://images.unsplash.com/photo-1460518451285-97b6aa326961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"}
 
-# Teil 5 {data-background="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80"}
+## Gruppenaufgabe
+* Bitte sammeln Sie 4-5 ganz konkrete Tätigkeiten, die Sie durchführen, sobald Sie wieder im Amt zurück sind um den Infektionsschutz im Amt zu verbessern.
+* Beispiele für typische Infektionsschutzprobleme: EHEC-Ausbruch, SARS-CoV-2-Beginn, Norovirus-Ausbruch Berlin 
+* Aufteilung in Gruppen a 4-5 Teilnehmer
+
+# Teil 5: Zusatz {data-background="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80"}
+
+## [Infektionsschutzkompendium](https://jakobschumacher.github.io/infektionsschutzkompendium)
 
 
-Wichtige Links
-========================================================
-* <a href="https://jakobschumacher.github.io/infektionsschutzkompendium">Infektionsschutzkompendium<a>
-* <a href="https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/merkblaetter_node.html">RKI-Ratgeber<a>
-* <a href="https://www.bfr.bund.de/de/lebensmittelhygiene-54338.html">Lebensmittelhygiene BFR<a>
-* <a href="https://www.auswaertiges-amt.de/de/ReiseUndSicherheit/reise-und-sicherheitshinweise">Reisewarnungen des Auswärtigen Amtes<a>
+# Vielen Dank fürs Zuhören
 
-  
+Wer noch weiter lesen will:  
+
+- [RKI-Ratgeber](https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/merkblaetter_node.html)
+- [Lebensmittelhygiene](https://www.bfr.bund.de/de/lebensmittelhygiene-54338.html)
+- [Reisewarnungen des Auswärtigen Amtes](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit/reise-und-sicherheitshinweise)
+
+## Danksagung
+<div style="margin:10px; font-size:60%; text-align:left">
+Der Vortrag wurde erstellt mit [Reveal.js](https://revealjs.com/) in [R/RStudio](https://www.rstudio.com/). Die Präsentationswebseite läuft mit [Jekyll](https://jekyllrb.com/). Das Hosting erfolgt auf [Github](https://github.com).
+</div>
