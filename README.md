@@ -2,4 +2,4 @@
 Dieses Repository enthält Präsentationen von Jakob Schumacher zu diversen Anlässen.
 
 ## Kontakt
-![Kontaktadresse](/assets/em.png)
+![Kontaktadresse](/assets/img/em.png)
