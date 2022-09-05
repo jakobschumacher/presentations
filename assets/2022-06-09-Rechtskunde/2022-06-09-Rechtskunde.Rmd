@@ -23,7 +23,8 @@ always_allow_html: yes
 params:
   projektname: "2022-06-09-Rechtskunde"
   presentationdate: "2022-09-06 07:30:00"
-  projekttitle: Das Infektionsschutzgesetz
+  projekttitle: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen"
+  pdflink: "https://jakobschumacher.github.io/presentations/assets/2022-06-09-Rechtskunde/2022-06-09-Rechtskunde.pdf"
   showsolutions: TRUE
   jekyllfriendly: TRUE
   course: Rechtskunde
@@ -32,18 +33,17 @@ params:
 
 ```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
 # load packages
-Packages <- c("dplyr", "ggplot2", "lubridate", "readr", "here", "plotly")
-lapply(Packages, library, character.only = TRUE)
+pacman::p_load("dplyr", "ggplot2", "lubridate", "readr", "here", "plotly")
 
 # Knitr options
 knitr::opts_chunk$set(echo=FALSE, warning=FALSE, error=FALSE, results='asis')
 knitr::opts_knit$set(root.dir = here::here("assets")) 
 
-
-
 # Change the links for jekyll or for local rmarkdown usage
 if(params$jekyllfriendly){basepath <- paste0("{{site.url}}{{site.baseurl}}/assets/", params$projektname, "/")}
 if(!params$jekyllfriendly){basepath <- ""}
+
+
 
 ```
 
@@ -56,7 +56,7 @@ filename <- paste0(params$projektname, "/", params$projektname, ".html")
 
 tempfilewithpath <- paste0(params$projektname, "/", "tempfile.html")
 file.create(tempfilewithpath)
-write(paste0("---\ntitle: ", params$projektname), file=tempfilewithpath)
+write(paste0("---\ntitle: ", params$projekttitle), file=tempfilewithpath)
 write(paste0("date: ", params$presentationdate), file=tempfilewithpath, append = TRUE)
 write(paste0("host: ", params$host), file=tempfilewithpath, append = TRUE)
 write(paste0("course: ", params$course), file=tempfilewithpath, append = TRUE)
@@ -73,7 +73,7 @@ file.remove(filename)
 * Jakob Schumacher (Robert Koch-Institut - Surveillance|ÖGD-Kontaktstelle)
 * Thema: Praktischer Blick auf das Infektionsschutzgesetz 
 * Vortrag als Webseite: [https://jakobschumacher.github.io/presentations](https://jakobschumacher.github.io/presentations/)
-[PDF]({{ site.baseurl }}/assets/2022-06-09-Rechtskunde/2022-06-09-Rechtskunde.pdf)
+* [Download als PDF](params$pdflink)
 
 
 <small>Folien sind Thematisch nach unten sortiert (Pfeil nach unten)</small>
