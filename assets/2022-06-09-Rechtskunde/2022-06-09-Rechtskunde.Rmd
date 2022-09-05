@@ -3,6 +3,10 @@ title: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen"
 author: "Jakob Schumacher"
 date: "06. September 2022"
 output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
   revealjs::revealjs_presentation:
     center: yes
     theme: simple
@@ -15,17 +19,13 @@ output:
       progress: yes
       overview: yes
       controlsTutorial: yes
-  word_document: default
-  html_document:
-    df_print: paged
-  pdf_document: default
 always_allow_html: yes
 params:
   projektname: "2022-06-09-Rechtskunde"
   presentationdate: "2022-09-06 07:30:00"
-  projekttitle: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen"
+  projekttitle: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen - Ohne Lösungen"
   pdflink: "https://jakobschumacher.github.io/presentations/assets/2022-06-09-Rechtskunde/2022-06-09-Rechtskunde.pdf"
-  showsolutions: TRUE
+  showsolutions: FALSE
   jekyllfriendly: TRUE
   course: Rechtskunde
   host: Akademie für öffentliches Gesundheitswesen
@@ -70,13 +70,10 @@ file.remove(filename)
 ```
 
 # Über diesen Vortrag
-* Jakob Schumacher (Robert Koch-Institut - Surveillance|ÖGD-Kontaktstelle)
+* Jakob Schumacher (ÖGD-Kontaktstelle am RKI)
 * Thema: Praktischer Blick auf das Infektionsschutzgesetz 
-* Vortrag als Webseite: [https://jakobschumacher.github.io/presentations](https://jakobschumacher.github.io/presentations/)
-* [Download als PDF](params$pdflink)
-
-
-<small>Folien sind Thematisch nach unten sortiert (Pfeil nach unten)</small>
+* Bedienung: Über die Pfeile (z.B. nach unten)
+* [Download als PDF](`r params$pdflink`)  
 
 # Powersätze
 * _Wir dürfen alles nach § 16_
