@@ -49,7 +49,7 @@ if(!params$jekyllfriendly){basepath <- ""}
 
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
-
+# Es gibt noch ein Problem mit dem Ordner, beim manuellen durchlaufen nimmt er noch den falschen Ordner an.
 rmarkdown::render(paste0(params$projektname, '/', params$projektname, '.Rmd'))
 
 filename <- paste0(params$projektname, "/", params$projektname, ".html")
