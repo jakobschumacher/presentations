@@ -1,0 +1,437 @@
+---
+title: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen - Mit Lösungen"
+author: "Jakob Schumacher"
+date: "06. September 2022"
+output:
+  revealjs::revealjs_presentation:
+    center: yes
+    theme: simple
+    transition: slide
+    self_contained: yes
+    reveal_options:
+      slideNumber: c/t
+      previewLinks: yes
+      controls: yes
+      progress: yes
+      overview: yes
+      controlsTutorial: yes
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+always_allow_html: yes
+params:
+  projektname: "2022-06-09-Rechtskunde-IFSG"
+  presentationdate: "2022-09-06 06:26:00"
+  projekttitle: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen - Mit Lösungen"
+  pdflink: "https://jakobschumacher.github.io/presentations/assets/2022-06-09-Rechtskunde/2022-06-09-Rechtskunde-IFSG.pdf"
+  showsolutions: TRUE
+  jekyllfriendly: TRUE
+  course: Rechtskunde
+  host: Akademie für öffentliches Gesundheitswesen
+---
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE}
+# load packages
+pacman::p_load("dplyr", "ggplot2", "lubridate", "readr", "here", "plotly")
+
+# Knitr options
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, error=FALSE, results='asis')
+knitr::opts_knit$set(root.dir = here::here("assets")) 
+
+# Change the links for jekyll or for local rmarkdown usage
+if(params$jekyllfriendly){basepath <- paste0("{{site.url}}{{site.baseurl}}/assets/", params$projektname, "/")}
+if(!params$jekyllfriendly){basepath <- ""}
+
+
+
+```
+
+
+```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, eval=FALSE}
+
+rmarkdown::render(paste0(params$projektname, '/', params$projektname, '.Rmd'))
+
+filename <- paste0(params$projektname, "/", params$projektname, ".html")
+
+tempfilewithpath <- paste0(params$projektname, "/", "tempfile.html")
+file.create(tempfilewithpath)
+write(paste0("---\ntitle: ", params$projekttitle), file=tempfilewithpath)
+write(paste0("date: ", params$presentationdate), file=tempfilewithpath, append = TRUE)
+write(paste0("host: ", params$host), file=tempfilewithpath, append = TRUE)
+write(paste0("course: ", params$course), file=tempfilewithpath, append = TRUE)
+write(paste0("---"), file=tempfilewithpath, append = TRUE)
+filedata <- read_file(filename)
+write(filedata, file=tempfilewithpath, append = TRUE)
+rm(filedata)
+file.copy(from = paste0(tempfilewithpath), to = paste0("../_posts/", params$projektname, ".html"), overwrite = TRUE)
+file.remove(tempfilewithpath)
+file.remove(filename)
+```
+
+# Über diesen Vortrag
+* Jakob Schumacher (ÖGD-Kontaktstelle am RKI)
+* Thema: Praktischer Blick auf das Infektionsschutzgesetz 
+* Bedienung: Über die Pfeile (z.B. nach unten)
+* [Download als PDF](`r params$pdflink`)  
+
+# Powersätze
+* _Wir dürfen alles nach § 16_
+* _Wir müssen - und dürfen auch - nach § 25 ermitteln_
+* _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
+* _Wir müssen den Infektionsnotfall üben_
+
+
+# I Flughafenübung {data-background="`r paste0(basepath,"flughafen.jpg")`" style="color:#cfcfcf;"}
+
+## Einleitung
+Sie arbeiten seit 6 Monaten im Gesundheitsamt Reinickendorf. In Reinickendorf liegt der Flughafen Tegel. Es ist Freitag der 7.2.2020 um 15 Uhr. Das Landesministerium ruft sie an: Es sollen 20 Personen mit einem Bundeswehrflieger aus Wuhan kommen. Sie wissen, dass in Wuhan viele Fälle von Covid aufgetreten sind. Die WHO hat deswegen eine Gesundheitliche Notlage von internationaler Tragweite ausgerufen. 
+
+## 01 Zuständigkeit
+Als Sie am Sonntag vor dem Flughafen ankommen sind Sie entspannt. Bei so einer wichtigen Sache ist doch sicherlich die Senatsverwaltung zuständig. Oder?" Doch dann kommen Ihnen Zweifel.
+_Muss die Senatsverwaltung oder das Gesundheitsamt ermitteln? Welche Gesetzesgrundlage fordert, dass Sie eingreifen?_
+
+
+
+```{r include=params$showsolutions}
+
+cat( "## Einfach Antwort \n 
+Im § 25 steht _Ergibt sich ... dass jemand krank, krankheitsverdächtig, ansteckungsverdächtig oder Ausscheider ist ... so stellt das Gesundheitsamt die erforderlichen Ermittlungen an._ Das bedeutet Sie __müssen__ ermitteln. Ein Landesministerium kann nur dann eingreifen, wenn das Landesministerium eine Fachaufsicht hat und diese Fachaufsicht ausübt. Dass das Gesundheitsamt Maßnahmen ergreift, wird in § 28 IfSG gefordert. \n 
+## Komplizierte Antwort 1 (Hr. Koch) \n 
+Aufgrund des in den §§ [20](https://www.gesetze-im-internet.de/gg/art_20.html), [28](https://www.gesetze-im-internet.de/gg/art_28.html) Grundgesetz verankerten Bundesstaatsprinzip darf der Bund nicht in die Länderorganisation „hineinregieren“. Nach dem Grundgesetz hat der Bund für bestimmte Bereiche z.B. Infektionsschutz – ([§ 74 Nr. 19 GG](https://www.gesetze-im-internet.de/gg/art_74.html)) die Gesetzgebungsbefugnis. Er legt damit fest,  welche Aufgaben durch die Länder zu erfüllen sind. Er darf aber nicht festlegen, welche Stelle in der jeweiligen Landesverwaltung diese Aufgaben wahrnimmt (§ 54 IfSG).
+Für den Infektionsschutz als Ordnungsaufgabe wird dies für das Land Berlin durch das Allgemeine Sicherheits- und Ordnungsgesetz (ASOG) festgelegt. \n
+## Komplizierte Antwort 2 \n
+In der Anlage zu [§ 2 Abs. 4 Satz  1 ASOG](http://gesetze.berlin.de/jportal/portal/t/ccm/page/bsbeprod.psml;jsessionid=8BA1186F57C8461619C4DA903FB03046.jp20?pid=Dokumentanzeige&showdoccase=1&js_peid=Trefferliste&documentnumber=1&numberofresults=1&fromdoctodoc=yes&doc.id=jlr-ASOGBE2006pP2) – Zuständigkeitskatalog Ordnungsaufgaben – wird im 1. Abschnitt (Aufgaben der Senatsverwaltung) [Nr. 3 ](http://gesetze.berlin.de/jportal/?quelle=jlink&query=ASOG+BE&psml=bsbeprod.psml&max=true&aiz=true#jlr-ASOGBE2006V32Anlage-Nr3) festgelegt, dass der Senatsverwaltung die __Aufsicht__ u.a. in den Sachgebieten IfSG, TrinkwV, Badegewässer obliegen. Im 2. Abschnitt (Aufgaben der Bezirksämter) [Nr. 16 Abs. 1 lit. a)](http://gesetze.berlin.de/jportal/?quelle=jlink&query=ASOG+BE&psml=bsbeprod.psml&max=true&aiz=true#jlr-ASOGBE2006V32Anlage-Nr16) ist festgelegt, dass Aufgabe der Bezirksverwaltungen die __Durchführung__ des Gesundheitsschutzes u.a. nach dem IfSG, der TrinkwV, den internationalen Gesundheitsvorschriften ist. Ergänzend ist das Bezirksverwaltungsgesetz zu beachten. In der Anlage zu [§ 37 Abs. 1 Satz 1  BezVG](http://gesetze.berlin.de/jportal/portal/t/1j6z/page/bsbeprod.psml?doc.hl=1&doc.id=jlr-BezVwGBE2011rahmen&documentnumber=1&numberofresults=57&showdoccase=1&doc.part=X&paramfromHL=true#jlr-BezVwGBE2011pP37) ist in I.8. bestimmt, dass die Aufgaben vom „Gesundheitsamt“ wahrgenommen werden. 
+"
+)
+```
+
+
+
+
+
+
+## 02 Einlass
+Als Sie das Flughafengelände betreten wollen hält Sie der Pförtner zurück. “Hey,” ruft er “Wat wollen se denn? Wissen Se nicht, das det nen Flughafen ist? Außerdem kommn jetzt ein paar Kinesen mit so ner Krankheit.“ Sie stutzen, dass es zu solchen Problemen kommen kann. Was können Sie tun?  
+_Dürfen Sie den Flughafen betreten? Wie sieht die Situation aus, wenn es sich um einen militärischen Flughafen handelt?_ 
+
+
+```{r include=params$showsolutions}
+cat("
+## Antwort \n 
+Nach § 16 Absatz 2 haben Sie das Recht _zur Durchführung von Ermittlungen [...] Grundstücke, Räume, Anlagen und Einrichtungen [...] zu betreten._ Ein militärischer Flughafen ist ein Hoheitsgebiet der Bundeswehr, dementsprechend muss das Gesundheitsamt der Bundeswehr ermitteln ([§ 54a IfSG](https://www.gesetze-im-internet.de/ifsg/__54a.html)) und Sie können ein Betreten nicht erzwingen.
+")
+```
+
+
+
+## 03 Informationsweitergabe
+Während Sie ins Casino laufen, in dem die Lagebesprechung stattfinden soll, stoppt Sie ein freundlicher Mann mit einem schicken Anzug. "Guten Tag, ich bin vom Bundesministerium für Gesundheit und arbeite direkt für den Minister. Dieser erwartet  direkt nach der Landung des Flugzeugs eine vollständige Liste der Fälle von Ihnen."
+_Darf der Bundesminister für Gesundheit von Ihnen Fall-Informationen verlangen? Könnte er ein Gesetz/Verordnung schreiben, die das ermöglicht?_
+
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Nein, die Übermittlungspflichten sind festgelegt und gehen an das Bundesland im Regelfall ohne personenbezogene Daten. Das Bundesministerium für Gesundheit darf nach § 15 IfSG die §§ 6 und 7 über eine Verordnung erweitern. Dies kann er vorübergehend auch ohne die Zustimmung des Bundesrates tun. Da nur die §§ 6 und 7 erweitert werden dürfen, kann er keine Verordnung erstellen, die eine komplette Änderung der Meldewege beinhaltet. Der Bundesminister darf also keine Fall-Informationen von Ihnen verlangen. 
+")
+```
+
+
+
+## 04 Lagebesprechung
+Als Sie ins Casino kommen schauen Sie alle an. "Prima, dann kann es ja losgehen" sagt eine Feuerwehrmann. "Wie genau sieht ihr Plan aus?" fragt eine Frau vom Auswärtigen Amt. Sie stellen fest, dass alle von Ihnen erwarten die Leitung zu übernehmen.
+_Ist das Gesundheitsamt, die Landesebene oder die Bundeseben für die Bewältigung einer biologischen Gefahrenlage verantwortlich? Wie wäre es im Katastrophenfall? Wie wäre es im Kriegsfall?_
+
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Das zuständige Gesundheitamt leitet die Bewältigung einer biologischen Gefahrenlage. Dabei kann ein Gesundheitsamt die Landesebene um Amtshilfe bitten und die Landesebene wiederum kann die Bundesebene um Amtshilfe bitten. Im Katastrophenschutzfall greifen die entsprechenden Landesgesetze. Diese beinhalten meist eine Übernahme der Leitung der Lage durch einen Katastrophenschutzstab. Im Kriegsfall trägt das Verteidigungsministerium die Verantwortung.
+")
+```
+
+
+## 05 Untersuchung
+Sie beschließen von den Fluggästen die Temperatur zu messen und einen Rachenabstrich durchzuführen. Nachdem der Flieger ankommt wollen Sie direkt die erste Person untersuchen. Aber die Person weigert sich: "Das ist ein Eingriff in meine Grundrechte!". Ein Polizist bietet seine Hilfe an, aber: “Bevor ich der Person jetzt zu einer Untersuchung zwinge, nennen Sie mir doch bitte erst die entsprechende gesetzliche Grundlage.”
+_Aufgrund welcher gesetzlichen Grundlage können Sie eine Untersuchung erzwingen. Wo sind Ihre Grenzen? Wie wird wohl eine die genaue Durchführung einer Untersuchung unter Zwang aussehen?"_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Nach § 25 (3) IfSG können Sie eine mindestens ansteckungsverdächtige Personen zu einer Untersuchung zwingen. Als invasive Untersuchungen dürfen nur die im Gesetz genannten erzwungen werden, nicht-invasive Untersuchungen dürfen durchgeführt werden. 
+")
+```
+
+
+## 06 Quarantäne
+Die übernächste Person hat Fieber und Hustet, außerdem gibt Sie an Kontakt mit einer an Covid-erkrankten Person gehabt zu haben. Sie ist also krankheitsverdächtig. Sie beschließen diese Person ins Krankenhaus bringen zu lassen. Ein Pfleger des Krankenhauses fragt: "Und was machen wir, wenn diese Person es sich anders überlegt und sich aus dem Krankenhaus entfernen will?" 
+_Wie können Sie dafür Sorge tragen, dass die Person im Krankenhaus bleibt? Gibt es in Ihrem Bundesland eine dafür passende Einrichtung?_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Sie können eine krankheitsverdächtige Person eine Quarantäne nach § 30 IfSG anordnen. Dabei muss eine geeignete Unterbringung erfolgen. Es gelten bestimmte Regeln für die Umsetzung (Gegenstände zum Entwichen, Post, Seelsorger). Generell müssen die Maßnahmen dem Ziel des IfSG entsprechen. Die Bundesländer sind für die Bereitstellung einer solchen Einrichtung verantwortlich.
+")
+```
+
+
+
+## 07 Der unvorsichtige Pfleger
+Als die krankheitsverdächtige Person im Rettungswagen ist, sehen Sie das eine der betreuenden Pfleger keine Schutzkleidung trägt. Sie stellen ihn zu Rede. "Ich muss nachher noch dringend eine Schicht auf der Krebsstation übernehmen und habe keine Zeit mich umzuziehen." verteidigt er sich. "Sie werden vorerst gar keine Schicht auf der Krebsstation übernehmen." sagen Sie. "Ich ordne hiermit ein Tätigkeitsverbot an." 
+_Auf welcher gesetzlichen Grundlage dürfen Sie ein Tätigkeitsverbot anordnen? Können Sie ihm direkt ein Tätigkeitsverbot geben, selbst wenn die minimale Inkubationszeit 1 Tage beträgt?_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Sie können dem Pfleger ein Tätigkeitsverbot nach § 31 anordnen, wenn Sie den Pfleger als ansteckungsverdächtig betrachten. Auch bei einem Erzieher einer § 33 Einrichtung würde man ein Tätigkeitsverbot nach § 31 anordnen, da Covid im § 34 nicht erwähnt ist. Die Zeitdauer legt das Gesundheitsamt fest. Da der Pfleger ja vorhatte ohne sich umzuziehen zur Arbeit zu gehen, trägt er womöglich den Erreger an sich. Damit ist nach § 31 Satz 2 ein direktes Tätigkeitsverbot möglich.
+")
+```
+
+
+## 08 Ansteckungsverdacht
+Sie führen weiter die Untersuchung durch. Eine junge Frau, die komplett gesund ist fragt Sie: "Muss ich wirklich in Quarantäne gehen? Ich war bereits in China die ganze Zeit in Quarantäne und alle Personen in deren Nähe ich war hatten einen Mundschutz." Sie erinnern sich an die Worte der Senatsverwaltung, die gefordert hat, dass alle unbedingt in Quarantäne müssen.
+_Auf welcher Gesetzesgrundlage können Sie der jungen Frau ein Quarantäne anordnen? Macht es einen Unterschied wie die Person sich in China verhalten hat?_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Einer ansteckungsverdächtige kann nach § 30 eine Quarantäne angeordnet werden. Ansteckungsverdächtig ist man nach einem Gerichtsurteil, wenn die Aufnahme eines Erregers wahrscheinlicher ist als das Gegenteil. Dabei sollte die Schwere der Erkrankung mit eingerechnet werden. Aufgrund der Quarantäne in China ist also nicht unbedingt von einem Ansteckungsverdacht auszugehen und eine Quarantäne ist also nicht unbedingt verhältnismäßig.
+")
+```
+
+
+## 09 Die Katze
+Ein Rückkehrer hat eine kleine süße Katze mit im Handgepäck. Siedendheiß fällt Ihnen ein, dass die Katze ja womöglicherweise auch ansteckend sein kann. "Moment," denken Sie "was soll ich denn jetzt genau mit der Katze machen. Bin ich dafür zuständig?" 
+_Müssen Sie bezüglich der Katze etwas machen? Wer ist üblicherweise für Tiere zuständig?_  
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Das Veterinäramt ist für Maßnahmen bezüglich der Katze verantwortlich. Sie haben gemäß § 27 IfSG eine Unterrichtungspflicht. Da es sich um Gefahr im Verzug handelt müssen Sie aber nach § 16 IfSG Maßnahmen treffen. Das Veterinäramt könnte ihre Maßnahme ändern oder aufheben, siehe § 16 Absatz 7. 
+")
+```
+
+
+## 10 Arztauskunft
+Ein älterer Passagier kann nicht so richtig auf Ihre Fragen antworten. Sie vermuten, entweder er hat eine Hirnhautentzündung durch Covid oder er ist schon seit Jahren dement. Währned Sie noch überlegen, sehen Sie, dass der Passagier eine Karte um den Hals hängen hat. Hierauf ist die Telefonnummer seines Hausarztes vermerkt ist. Prompt rufen Sie den Hausarzt an. 
+_Muss der Hausarzt Ihnen Auskunft über den Fahrgast geben? Darf Ihnen der Arzt auch Auskunft darüber geben, dass der Patient eine besondere sexuelle Orientierung hat?_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Der Hausarzt ist nach § 25 (2) verpflichtet Ihnen Informationen zum Fall geben. Dabei muss sich die Befragung auf die Ermittlung der übertragbaren Erkrankung beziehen. Bei einem Ausbruch, bei dem die sexuelle Orientierung von großer Relevanz ist, müsste der Arzt auch hierzu eine Auskunft geben.
+")
+```
+
+
+## 11 Übermittlung
+Sie kommen mit den Untersuchungen zu einem Ende. Sie haben insgesamt zwei Krankheitsverdächtige identifiziert. Da es am Anfang der Pandemie ist, sind alle ganz aufgeregt. "Wem muss ich den jetzt was übermitteln?" fragen Sie sich. 
+_An wen muss eine Übermittlung erfolgen? Auf welchen gesetzlichen Grundlagen müssen Sie übermitteln? Und welche Informationen müssen Sie übermitteln? Bedenken Sie, dass die WHO eine gesundheitliche Notlage internationaler Tragweite ausgerufen hat."_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Eine Übermittlung ist gemäß § 9 notwendig und die Inhalte sind in §11 festgelegt. Ggf. könnte es auch eine gesundheitliche Notlage mit internationaler Tragweite darstellen. Dann wäre eine Übermittlung nach § 12 notwendig. Prinzipiell umfassen die Meldung nach § 12 alle sinnvollen Informationen. 
+")
+```
+
+
+## 12 Desinfektionsmaßnahmen
+Der Pilot kommt auf Sie zu und fragt Sie: "Kann ich denn jetzt mit dem Flugzeug weiterfliegen?" Bevor Sie die Frage beantworten kommt eine Feuerwehrfrau und fragt dazwischen: "Die ganzen Gegenstände, die die Personen benutzt haben, wie sollen wir denn diese desinfizieren?" Sie stöhnen und denken "Oh Mann, bin ich denn für alles zuständig?" 
+_Wer entscheidet, was mit den kontaminierten Gegenständen z.B. Feldbetten, Krankentransport, Flugzeug usw. passiert? Bedenken Sie bitte, dass das Flugzeug der Bundeswehr gehört. Was muss bei einer Desinfektion beachtet werden._
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Nach § 17 ist die zuständige Behörde (also das Gesundheitsamt) dafür verantwortlich Maßnahmen zur Desinfektion zu treffen. Für das Bundeswehrmaterial obliegt nach § 70 (1) 5. der Vollzug über Gegenstände der Bundeswehr bei der Bundeswehr selber. Bei der Desinfektion dürfen nach § 18 (1) 1 nur vom Robert Koch-Institut geprüfte Mittel verwendet werden, nach § 17 (3) müssen __Fachkräfte__ beauftragt werden.
+")
+```
+
+## 13 Datenschutz
+Während Sie mit der Bürgermeisterin telefonieren spricht Sie ein Mann von der Seite an: "Wo wollen Sie mit der Liste hin?" "Ähh, warum wollen Sie das wissen?" fragen Sie. "Ich bin die datenschutzbeauftragte Person und achte darauf, dass der Datenschutz bewahrt bleibt. Der Zettel den Sie haben ist voll mit personenbezogenen Daten, nennen Sie mir die gesetzliche Grundlage sonst lasse ich Sie vierteilen." 
+_Dürfen Sie die personenbezogen Daten verarbeiten?_  
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Sie haben eine Ermittlung auf gesetzlicher Grundlage durchgeführt (§ 25 IfSG (3) Satz 4). Das bedeutet Sie dürfen diese Daten für die Zwecke des Gesetzes verarbeiten. Das IfSG sieht an mehreren Stellen vor, dass Sie Daten zum Zwecke des Gesetzes verarbeiten dürfen.
+")
+```
+
+
+## 14 Großveranstaltung
+Der Flughafenbetreiber meldet sich: "In einer halben Stunde landet ein Sonderflugzeug mit einer Gruppe von chinesischen Heilpraktikern, die direkt aus Hubei kommen. Dort haben Sie viele kranke Personen von Covid geheilt. Sie machen jetzt zusammen mit der Aktionsgruppe Alternative Krebsheilung eine Großkundgebung am Paracelsus Bad und wollen dort gemeinsam baden gehen." "Was" entfährt es Ihnen "das ist ja total blödsinnig!" 
+_Haben Sie die Möglichkeit die Kundgebung und das Baden abzusagen? Wenn ja, auf welcher Gesetzesgrundlage?_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Nach § 28 können Sie sowohl eine Ansammlung von Menschen beschränken, als auch Einrichtungen schließen insbesondere auch Badeanstalten.
+")
+```
+
+
+## 15 Stadtteilsperrung _Cordon Sanitaire_
+Als Sie denken es geht nicht mehr schlimmer, kommt der Gesundheitssenator (Landesgesundheitsminister) auf Sie zu: "Ich habe in Steglitz einen hustenden Asiaten gesehen. Hustend, jawoll. Ganz doll hat der gehustet!" und er macht ein paar mal vor, wie der asiatisch ausehende Mensch gehustet hat. "Der ganze Stadtteil muss abgesperrt werden! Ist es in Deutschland überhaupt möglich einen ganzen Stadtteil zu sperren?  
+_Auf welcher gesetzlichen Grundlage könnten Sie einen größeres Gebiet sperren. Was begrenzt eigentlich die Möglichkeiten des Gesundheitsamtes?_
+
+```{r include=params$showsolutions}
+cat("## Antwort \n 
+Nach § 16 ist es prinzipell möglich ein größeres Gebiet zu sperren. Die Maßnahme muss allerdings verhältnismaßig sein, das bedeutet:  1. Die Maßnahme muss legitim sein (auf das Wohl der Allgemeinheit gerichtet oder ein staatlicher Schutzauftrag. 2. Die Maßnahme muss geeignet sein (das angestrebte Ziel kann mit der Maßnahme zumindest gefördert werden.) 3. Die Maßnahme muss erforderlich sein (kein milderes Mittel) 4. Die Maßnahme muss angemessen sein (Nachteile nicht völlig außer Verhältnis zu den Vorteilen)
+")
+```
+
+
+
+## Was haben Sie mitgenommen?
+
+
+# II Diskussion {data-background="`r paste0(basepath,"discussion.jpg")`"}  
+
+## Wieso gibt es in Deutschland 378 unterschiedliche Quarantäneschreiben?
+
+## Wieso sind unsere Schreiben so unverständlich? <br> Ist die Verwendung von Paragraphen im Gespräch und in Schreiben: _Dark magic_?
+
+## Wie sollte ein Gesundheitsamt für die Anwendung des IfSG ausgestattet sein?
+
+## Wie sollte man sich auf einen Infektionsnotfall vorbereiten?
+
+## Wieso betreiben wir so wenig Prävention (Beispiel: Campylobacter)?
+
+## Wieso akzeptieren wir die schlechte Meldemoral der Ärzt*innen?
+
+# Powersätze
+* _Wir dürfen alles nach § 16_
+* _Wir müssen - und dürfen auch - nach § 25 ermitteln_
+* _Zusammenarbeit schlägt Meldepflicht (außer im Schadensfall)_
+* _Wir müssen den Infektionsnotfall üben_
+
+# Wiederholung
+* Was haben Sie insgesamt mitgenommen?
+* Werden Sie in der kommenden Zeit etwas anders machen?
+
+# Evaluation
+* Was kann der Dozent besser machen? (Private Nachricht im Chat)
+
+# Vielen Dank fürs Zuhören
+* [merkblaetter-fuer-infektionskrankheiten.de/](https://merkblaetter-fuer-infektionskrankheiten.de/)
+* [WBK-Mitschrift](https://jakobschumacher.github.io/mitschrift_weiterbildungskurs/)
+* [Infektionsschutzkompendium](https://jakobschumacher.github.io/infektionsschutzkompendium/)
+
+
+
+# Backup: Wichtige Paragraphen {data-background="`r paste0(basepath,"paragraph.jpg")`"}
+
+## [§ 12](https://www.gesetze-im-internet.de/ifsg/__12.html)-Beispiel: Der Infektionsnotfall
+Feuerwehrleitzentrale ruft an: _"Notarzt vermutet Ebola-Fall"_
+
+## Ein Beispiel
+* Telefonisch [§12 Meldung](https://www.rki.de/DE/Content/Infekt/IfSG/Meldeboegen/Meldung_12/meldung_12_node.html)
+* [STAKOB](https://www.rki.de/DE/Content/Kommissionen/Stakob/Stakob_node.html) Einrichtung anrufen
+* Vor Ort gehen: Taxi/Feuerwehr/Polizei
+* Material mitnehmen
+* Information Mitarbeitende/Kommune
+* Vor Ort: Anweisungen geben
+  - Lagebesprechung
+  - Patientenversorung mit PSA
+  - Sperrbereich
+  - KPs festlegen
+  - Desinfektion festlegen
+
+## [§ 16](https://www.gesetze-im-internet.de/ifsg/__16.html)-Beispiel: Schließung einer Praxis
+Bei einer Praxisbegehung: Der Arzt verwendet rostiges Werkzeug, hat falsches abgelaufenes Händedesinfektionsmittel, geflickte Desinfektionsanlage. Als der Arzt merkt, dass es kritisch wird,  beruft er sich aufs Hausrecht und den Datenschutz und will alles schriftlich. 
+
+## Was ist in der Realität passiert?
+* Mündlich ausgesprochen: _Ich schließe jetzt ihre Praxis gemäß § 16 IfSG._
+* Kriterien für die Aufhebung der Schließung darstellen. CAVE: Einhaltung von Richtlinien als Ziel 
+* Auf Begehung und Unterlagen bestanden. Zur Not Polzei rufen.
+* Ausführliches Protokoll erstellt, Photos mit Diensthandy gemacht
+* <a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/praxisschliessung.pdf">Anordnung § 16</a> erstellt
+* Rücksprache mit Rechtsamt
+
+## [§ 20a](https://www.gesetze-im-internet.de/ifsg/__20a.html)-Beispiel: Umsetzung der Impfpflicht
+Die Politik hat eine Impfpflicht für Beschäftigte in bestimmten Einrichtungen umgesetzt. 
+
+## Wie könnte ein Gesundheitsamt das lösen?
+* Mit Landesverwaltung klären, wer zuständig ist
+* Eingehende Meldungen organisieren (SurvNet-Import)
+* FAQ erstellen
+* Anhörung/Tätigkeitsverbot vorbereiten
+* Rechtsamt einbinden
+* Mit Einrichtungen kommunizieren, z.B. Webseite
+* Kontrollpunkte einrichten
+* Statistik mitbedenken
+
+## [§ 23](https://www.gesetze-im-internet.de/ifsg/__23.html)-Beispiel: Hygienepersonal im Krankenhaus
+Ein Krankenhaus hat nicht genügend Hygienepersonal.
+
+## Wie kann vorgegangen werden
+* Ansprechen bei der Begehung
+* Anordnung der Erfassung des nach [KRINKO](https://www.rki.de/DE/Content/Infekt/Krankenhaushygiene/Kommission/kommission_node.html/) notwendigen Personals
+* Einfacher durchzusetzen wäre die [Hygieneverordnung](https://www.aekb.de/fileadmin/migration/pdf/Anlage_1_Hygieneverordnung_Berlin_12_06_2012.pdf) 
+
+## [§ 28](https://www.gesetze-im-internet.de/ifsg/__28.html): Quarantäne
+Eine Labor meldet eine Person mit Covid-19. Im selben Haushalt befindet sich noch ein weiterer asymptomatischer Fall, eine symptomatische Person ohne Labornachweis und eine Kontaktperson.
+
+## Hinweise
+* Telefonische Ermittlung
+* <a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/absonderung.pdf">Absonderung § 28</a> 
+* Empfehlungen des RKIs folgen
+
+## [§ 34](https://www.gesetze-im-internet.de/ifsg/__34.html): Shigelloseausbruch
+Einer Hygienekontrolleurin fällt auf, dass sie heute zwei Shigellose-Fälle hat, die nicht aus dem Ausland kommen. Es stellt sich heraus, das es einige Fälle in einer Kita gibt. 
+
+## Was haben wir getan?
+* Vor Ort ermittelt
+* VetLeb informiert
+* Die Landesstelle gefragt, ob uns jemand unterstützen will
+* Andere Kitas des Caterers Stuhlproben 
+* Kontaktdaten, Linelist 
+* Ausbruchsfalldefinition festgelegt
+* TVs nach [Wiederzulassungstabelle §34](https://www.rki.de/DE/Content/Infekt/EpidBull/Merkblaetter/Wiederzulassung/Wiederzulassung_Tabelle.pdf?__blob=publicationFile) angesetzt
+* Aushang und Informationsweitergabe durch die Kitaleitung (FAQ durch uns) 
+* <a href="{{ site.url }}{{ site.baseurl }}/assets/2022-01-31-IfSG-WBK/shigellenausbruch.pdf">Anordnung Shigellenausbruch</a>
+* Keine Suche nach Personen mit riskantem Sexualverhalten 
+
+## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Meldepflicht für E.Coli
+Ein Gesundheitsamt bekommt eine E.Coli-Meldung. In welchen Kombinationen Meldepflichtige Person - Meldepflichtiges Ereignis ist das möglich?
+
+
+```{r include=params$showsolutions}
+cat("## Lösungsvorschlag \n 
+* Arzt/Pathologe/Heilberuf/Unterkünfte/Heilpratiker -> 6.1.1.f (HUS)
+* Arzt/Pathologe/Heilberuf/Unterkünfte -> 6.1.2 (Gastroenteritis)
+* Arzt/Pathologe/Heilberuf -> 6.3 (Nosokomialer Ausbruch)
+* Labor/Pathologe ->  7.1.13 (E.Coli)
+* Labor/Pathologe ->  7.1.52 (MRGN)
+* Zusätzlich Kindereinrichtung -> 34.1.3
+* Zusätzlich USI -> 16 Trinkwv 
+")
+```
+
+
+
+## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Nicht-namentliche Ereignisse 
+Welche nicht-namentliche meldepflichtigen Ereignisse können vorkommen und an wen müssen sie gemeldet werden?
+
+
+```{r include=params$showsolutions}
+cat("## Lösungsvorschlag \n 
+* §6.3 (Nosokomialer Ausbruch) durch Arzt/ Pathologe/Heilberuf an das Gesundheitsamt
+* §7.3 (HIV/Trepanoma/Gonokokken/ Echinokokken/Malaria/Toxoplasmose/) an das RKI
+")
+```
+
+
+
+## §§ [6](https://www.gesetze-im-internet.de/ifsg/__6.html)/[7](https://www.gesetze-im-internet.de/ifsg/__7.html)/[8](https://www.gesetze-im-internet.de/ifsg/__8.html)-Übung: Krankenhaus
+Welche typischen Meldeereignisse kommen eigentlich immer aus einem Krankenhaus?
+
+
+
+```{r include=params$showsolutions}
+cat("## Lösungsvorschlag \n 
+* § 6.1.1a.b Clostridioides
+* § 6.3 Nosokomialer Ausbruch
+* § 7.1.52 MRSA/MRGN
+* § 7.2 Unbekannter Erreger
+")
+```
+
+
+
+## [§ 23a](https://www.gesetze-im-internet.de/ifsg/__23a.html) Impfstatus
+Im Gesundheitsamt gibt es Personen die Ersthausbesuche machen und nicht gegen Masern geimpft sind. Was keine Amtsleitung dagegen tun?
+
+## Vorgehen in unserem Gesundheitsamt
+* Abfrage nach §23a geplant
+* Konsequenz unklar
