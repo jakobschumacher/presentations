@@ -3,6 +3,10 @@ title: "Praktische Erfahrung mit dem IfSG - Tumult am Flughafen - Mit Lösungen"
 author: "Jakob Schumacher"
 date: "06. September 2022"
 output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
   revealjs::revealjs_presentation:
     center: yes
     theme: simple
@@ -15,10 +19,6 @@ output:
       progress: yes
       overview: yes
       controlsTutorial: yes
-  word_document: default
-  html_document:
-    df_print: paged
-  pdf_document: default
 always_allow_html: yes
 params:
   projektname: "2022-06-09-Rechtskunde-IFSG"
