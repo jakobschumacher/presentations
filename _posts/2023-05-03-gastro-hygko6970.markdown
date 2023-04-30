@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Gastroenteritis für den HygKo-Kurs"
+id: 2023-05-03-01
+date:   2023-04-30 8:00:00
+author: Jakob Schumacher
+place: Online
+course: HygKo 69/70
+host: Akademie für öffentliches Gesundheitswesen
+---
+
+
+[Präsentation im HTML-Format]({{site.baseurl}}/assets/2023-05-03-Gastroenteritis-HygKo/2023_05_03_Presentation_HygKo69_70_Gastroenteritis.html)
