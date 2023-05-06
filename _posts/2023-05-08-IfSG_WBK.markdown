@@ -2,10 +2,10 @@
 layout: post
 title:  "Das Infektionsschutzgesetz"
 subtitle: "Eine Lehrwebseite"
-id: 2023-01-30-00
-date:   2023-01-30 06:00:00
+id: 2023-05-08-00
+date:   2023-05-08 06:00:00
 author: Jakob Schumacher
-course: WBK
+course: WBK 18 (IV)
 host: Akademie
 ---
 
