@@ -1,0 +1,70 @@
+baseURL = 'https://jakobschumacher.github.io/presentations/'
+languageCode = 'de'
+title = 'Präsentationen Jakob Schumacher'
+theme = 'hugo-theme-stack'
+DefaultContentLanguage = 'de'
+copyright = 'Jakob Schumacher'
+
+[params]
+  description = 'Präsentationen rund um das Thema Infektionsschutz, Gesundheitsschutz und ÖGD'
+  mainSections = ['posts']
+  featuredImageField = 'image'
+  rssFullContent = true
+
+  [params.footer]
+    since = 2020
+
+  [params.dateFormat]
+    published = '02.01.2006'
+    lastUpdated = '02.01.2006 15:04 MST'
+
+  [params.sidebar]
+    subtitle = 'Präsentationen rund um das Thema Infektionsschutz, Gesundheitsschutz und ÖGD'
+    avatar.enabled = false
+
+  [params.article]
+    math = false
+    toc = true
+    readingTime = true
+    license.enabled = false
+
+  [params.comments]
+    enabled = false
+
+  [params.widgets]
+    homepage = [
+      { type = 'search' },
+      { type = 'archives', params = { limit = 10 } },
+      { type = 'tag-cloud', params = { limit = 10 } }
+    ]
+    page = [
+      { type = 'toc' }
+    ]
+
+  [params.colorScheme]
+    toggle = true
+    default = 'auto'
+
+[pagination]
+  pagerSize = 10
+
+[permalinks]
+  posts = '/:year/:month/:day/:title/'
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = true
+    startLevel = 2
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true

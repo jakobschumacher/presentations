@@ -3,3 +3,9 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+Archiv/
+
+# Hugo
+/public/
+/resources/_gen/
+.hugo_build.lock
