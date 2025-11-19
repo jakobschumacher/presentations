@@ -13,23 +13,23 @@ host: Akademie für öffentliches Gesundheitswesen
 website: https://jakobschumacher.github.io/presentations/
 ---
 class: center, middle, inverse
-# Das Meldewesen existiert, damit wir Maßnahmen ergreifen!
-Vortrag über das deutsche infektiologische Meldewesen nach §§ 6-11 Infektionsschutzgesetz
+# {{ .Title }}
+{{ .Params.subtitle }}
 
 ---
 # Über diesen Vortrag
 .left-column[
 [
 ![QR-Code zur Webseite](/assets/img/qr_jakobschumachergithubiopresentations.png)
-](https://jakobschumacher.github.io/presentations/2020/02/19/das-meldewesen-existiert-damit-wir-maßnahmen-ergreifen/)
+]({{ .Permalink }})
 ]
 .right-column[
-* Vortrag über das deutsche infektiologische Meldewesen nach §§ 6-11 Infektionsschutzgesetz
-* 66 Lehrgang Hygienekontrolle
-* Akademie für öffentliches Gesundheitswesen
-* Komturstr. 18A, Berlin
-* 19.02.2020
-* [Jakob Schumacher](mailto:jakob.schumacher@web.de)
+* {{ .Params.subtitle }}
+* {{ .Params.course }}
+* {{ .Params.host }}
+* {{ .Params.place }}
+* {{ .Date.Format "02.01.2006" }}
+* [{{ .Params.author }}](mailto:{{ .Params.authoremail }})
 ]
 ---
 # Wieso gibt es das Meldewesen?

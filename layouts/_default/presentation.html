@@ -78,7 +78,17 @@
   </head>
   <body>
     <textarea id="source">
-{{ .Content }}
+{{ $content := .RawContent }}
+{{ $content = replace $content "{{ .Title }}" .Title }}
+{{ $content = replace $content "{{ .Params.subtitle }}" .Params.subtitle }}
+{{ $content = replace $content "{{ .Params.author }}" .Params.author }}
+{{ $content = replace $content "{{ .Params.authoremail }}" .Params.authoremail }}
+{{ $content = replace $content "{{ .Params.place }}" .Params.place }}
+{{ $content = replace $content "{{ .Params.course }}" .Params.course }}
+{{ $content = replace $content "{{ .Params.host }}" .Params.host }}
+{{ $content = replace $content "{{ .Date.Format \"02.01.2006\" }}" (.Date.Format "02.01.2006") }}
+{{ $content = replace $content "{{ .Permalink }}" .Permalink }}
+{{ $content }}
     </textarea>
     <script src="/assets/js/remark-latest.min.js" type="text/javascript">
     </script>
