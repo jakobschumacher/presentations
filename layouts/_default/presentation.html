@@ -14,23 +14,28 @@
       }
       .reveal {
         font-family: 'Droid Serif', serif;
+        {{ if eq .Params.size "medium" }}
+        font-size: 32px;
+        {{ end }}
       }
       .reveal code {
         font-family: 'Ubuntu Mono', monospace;
       }
-      {{ if eq .Params.size "medium" }}
-        .reveal { font-size: 32px; }
-      {{ end }}
-      .two-column {
-        display: flex;
-        gap: 2rem;
-      }
-      .left-column {
-        flex: 1;
+      .reveal .slides section {
         text-align: center;
       }
-      .right-column {
-        flex: 2;
+      .reveal .slides section.has-dark-background h1,
+      .reveal .slides section.has-dark-background h2,
+      .reveal .slides section.has-dark-background h3 {
+        color: #fff;
+      }
+      .two-columns {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+      }
+      .column {
+        flex: 1;
       }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
@@ -40,17 +45,21 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        {{ $content := .RawContent }}
-        {{ $content = replace $content "{{ .Title }}" .Title }}
-        {{ $content = replace $content "{{ .Params.subtitle }}" .Params.subtitle }}
-        {{ $content = replace $content "{{ .Params.author }}" .Params.author }}
-        {{ $content = replace $content "{{ .Params.authoremail }}" .Params.authoremail }}
-        {{ $content = replace $content "{{ .Params.place }}" .Params.place }}
-        {{ $content = replace $content "{{ .Params.course }}" .Params.course }}
-        {{ $content = replace $content "{{ .Params.host }}" .Params.host }}
-        {{ $content = replace $content "{{ .Date.Format \"02.01.2006\" }}" (.Date.Format "02.01.2006") }}
-        {{ $content = replace $content "{{ .Permalink }}" .Permalink }}
-        {{ $content | safeHTML }}
+        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+          <textarea data-template>
+{{ $content := .RawContent }}
+{{ $content = replace $content "{{ .Title }}" .Title }}
+{{ $content = replace $content "{{ .Params.subtitle }}" .Params.subtitle }}
+{{ $content = replace $content "{{ .Params.author }}" .Params.author }}
+{{ $content = replace $content "{{ .Params.authoremail }}" (.Params.authoremail | default "jakob.schumacher@web.de") }}
+{{ $content = replace $content "{{ .Params.place }}" .Params.place }}
+{{ $content = replace $content "{{ .Params.course }}" .Params.course }}
+{{ $content = replace $content "{{ .Params.host }}" .Params.host }}
+{{ $content = replace $content "{{ .Date.Format \"02.01.2006\" }}" (.Date.Format "02.01.2006") }}
+{{ $content = replace $content "{{ .Permalink }}" .Permalink }}
+{{ $content }}
+          </textarea>
+        </section>
       </div>
     </div>
 
@@ -61,6 +70,7 @@
     <script>
       Reveal.initialize({
         hash: true,
+        center: true,
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
         markdown: {
           smartypants: true
