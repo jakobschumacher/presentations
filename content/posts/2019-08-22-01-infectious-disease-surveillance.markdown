@@ -10,4 +10,4 @@ host: Council on International Educational Exchange (CIEE)
 ---
 
 
-[Präsentation im PDF-Format](/presentations//assets/2019-08-22-01/presentation.pdf)
+[Präsentation im PDF-Format](/presentations/assets/2019-08-22-01/presentation.pdf)

@@ -10,4 +10,4 @@ host: Akademie für öffentliches Gesundheitswesen
 ---
 
 
-[Präsentation im HTML-Format](/presentations//assets/2023-05-03-Gastroenteritis-HygKo/2023_05_03_Presentation_HygKo69_70_Gastroenteritis.html)
+[Präsentation im HTML-Format](/presentations/assets/2023-05-03-Gastroenteritis-HygKo/2023_05_03_Presentation_HygKo69_70_Gastroenteritis.html)

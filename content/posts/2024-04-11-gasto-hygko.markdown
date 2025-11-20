@@ -9,6 +9,6 @@ course: HygKo
 host: Akademie
 ---
 
-[Präsentation im HTML-Format](/presentations//assets/2024_04_11_HygKo/2024_04_11_Presentation_HygKo_Gastroenteritis.html)
+[Präsentation im HTML-Format](/presentations/assets/2024_04_11_HygKo/2024_04_11_Presentation_HygKo_Gastroenteritis.html)
 
 

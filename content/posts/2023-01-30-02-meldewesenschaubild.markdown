@@ -10,4 +10,4 @@ host: Akademie
 ---
 
 
-[Das Schaubild](/presentations//assets/2023-01-30-schaubild-meldesystem/uebersicht-surveillance_klein.pdf)
+[Das Schaubild](/presentations/assets/2023-01-30-schaubild-meldesystem/uebersicht-surveillance_klein.pdf)

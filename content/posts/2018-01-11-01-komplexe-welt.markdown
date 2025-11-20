@@ -11,4 +11,4 @@ host: Verwaltungsakademie Berlin
 ---
 
 
-[Präsentation im PDF-Format](/presentations//assets/2018-01-11-01-komplexe-welt/presentation.pdf)
+[Präsentation im PDF-Format](/presentations/assets/2018-01-11-01-komplexe-welt/presentation.pdf)
