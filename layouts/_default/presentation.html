@@ -1,52 +1,80 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }}</title>
-    <link rel="stylesheet" href="/reveal.js/dist/reset.css">
-    <link rel="stylesheet" href="/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="/reveal.js/dist/theme/white.css">
     <style>
-      .reveal h1, .reveal h2, .reveal h3 {
-        font-family: 'Yanone Kaffeesatz', sans-serif;
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
-      .reveal {
-        font-family: 'Droid Serif', serif;
-        {{ if eq .Params.size "medium" }}
-        font-size: 32px;
-        {{ end }}
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      @page {
+        size: 1210px 681px;
+        margin: 0;
       }
-      .reveal code {
-        font-family: 'Ubuntu Mono', monospace;
+
+      @media print {
+        .remark-slide-scaler {
+          width: 100% !important;
+          height: 100% !important;
+          transform: scale(1) !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
       }
-      .reveal .slides section {
+
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 33%;
+        height: 92%;
+        float: left;
         text-align: center;
+        font-size: 18px;
       }
-      .reveal .slides section.has-dark-background h1,
-      .reveal .slides section.has-dark-background h2,
-      .reveal .slides section.has-dark-background h3 {
-        color: #fff;
+      .left-column h2:last-of-type, .left-column h3:last-child {
+        color: #000;
       }
-      .two-columns {
-        display: flex;
-        gap: 2rem;
-        align-items: flex-start;
+      .right-column {
+        width: 60%;
+        float: right;
+        padding-top: 1em;
+        font-size: 18px;
       }
-      .column {
-        flex: 1;
+
+      img {
+        max-width: 100%;
       }
+
+      .remark-slide-content { font-size: 30px; }
+
+      .medium { font-size: 25px; }
+      .small { font-size: 18px; }
+
+      {{ if eq .Params.size "medium" }}
+        .remark-slide-content { font-size: 25px; }
+      {{ end }}
     </style>
-    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic" rel="stylesheet">
   </head>
   <body>
-    <div class="reveal">
-      <div class="slides">
-        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
-          <textarea data-template>
+    <textarea id="source">
 {{ $content := .RawContent }}
 {{ $content = replace $content "{{ .Title }}" .Title }}
 {{ $content = replace $content "{{ .Params.subtitle }}" .Params.subtitle }}
@@ -58,24 +86,10 @@
 {{ $content = replace $content "{{ .Date.Format \"02.01.2006\" }}" (.Date.Format "02.01.2006") }}
 {{ $content = replace $content "{{ .Permalink }}" .Permalink }}
 {{ $content }}
-          </textarea>
-        </section>
-      </div>
-    </div>
-
-    <script src="/reveal.js/dist/reveal.js"></script>
-    <script src="/reveal.js/plugin/notes/notes.js"></script>
-    <script src="/reveal.js/plugin/markdown/markdown.js"></script>
-    <script src="/reveal.js/plugin/highlight/highlight.js"></script>
-    <script>
-      Reveal.initialize({
-        hash: true,
-        center: true,
-        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
-        markdown: {
-          smartypants: true
-        }
-      });
+    </textarea>
+    <script src="/assets/js/remark-latest.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({navigation: {scroll: false,}});
     </script>
   </body>
 </html>
