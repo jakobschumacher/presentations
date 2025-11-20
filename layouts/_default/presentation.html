@@ -85,6 +85,9 @@
 {{ $content = replace $content "{{ .Params.host }}" .Params.host }}
 {{ $content = replace $content "{{ .Date.Format \"02.01.2006\" }}" (.Date.Format "02.01.2006") }}
 {{ $content = replace $content "{{ .Permalink }}" .Permalink }}
+{{ $content = replace $content "{{ page.title }}" .Title }}
+{{ $content = replace $content "{{ page.subtitle }}" .Params.subtitle }}
+{{ $content = replace $content "{{ page.author }}" .Params.author }}
 {{ $content }}
     </textarea>
     <script src="{{ .Site.BaseURL }}assets/js/remark-latest.min.js" type="text/javascript"></script>

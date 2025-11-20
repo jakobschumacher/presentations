@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Das Infektionsschutzgesetz"
+subtitle: "Eine Lehrwebseite"
+id: 2023-05-08-00
+date:   2023-05-08 06:00:00
+author: Jakob Schumacher
+course: WBK 18 (IV)
+host: Akademie
+---
+
+
+[https://jakobschumacher.github.io/ifsg](https://jakobschumacher.github.io/ifsg)
