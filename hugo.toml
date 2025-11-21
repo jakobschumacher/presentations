@@ -4,6 +4,7 @@ title = 'Präsentationen Jakob Schumacher'
 theme = 'hugo-theme-stack'
 DefaultContentLanguage = 'de'
 copyright = 'Jakob Schumacher'
+publishDir = 'docs'
 
 [params]
   description = 'Präsentationen rund um das Thema Infektionsschutz, Gesundheitsschutz und ÖGD'
