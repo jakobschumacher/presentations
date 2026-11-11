@@ -11,3 +11,5 @@ Archiv/
 
 /.quarto/
 **/*.quarto_ipynb
+
+.~lock.*#
