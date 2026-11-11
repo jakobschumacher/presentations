@@ -1,0 +1,103 @@
+---
+title: Medizin die viele erreicht - Karriere im öffentlichen Gesundheitsdienst
+author: "Jakob Schumacher"
+embed-resources: true
+format:
+  revealjs:
+    logo:
+      path: logo_klein.png
+      alt: "Landesverband ÖGD"
+    footer: "Jakob Schumacher - Landesverband der ÄrztinInnen im Öffentlichen Gesundheitsdienst Brandenburg-Berlin"
+---
+
+
+# Welcher Zweig der Medizin rettet die meisten Menschenleben?
+
+---
+
+![Community Health Worker](communityhealthworker.png)
+
+---
+
+## {.center}
+
+> „Die medizinische Wissenschaft ist in ihrem innersten Kern und Wesen eine sociale Wissenschaft“
+
+Berlin 1847 - Salomon Neumann
+
+---
+
+
+## Prävention ist...
+
+* wirkmächtiger
+* aufwändiger
+* unklarer
+* politiknäher
+* wissenschaftlicher
+
+**.. als Kuration**
+
+---
+
+## Wer bewirkt Prävention?
+
+* Gestaltende der Lebenswelt
+    * Politik
+    * Wirtschaft
+* Öffentlicher Gesundheitsdienst
+* Public-Health Wissenschaft
+* Nicht-Regierungs-Organisationen
+* Krankenkassen
+
+---
+
+## Tätigkeiten
+* Trink- und Badewassergesundheit
+* Hygiene in Einrichtungen
+* Infektionskrankheiten
+* Sozialpsychiatrie bei Personen außerhalb des Systems
+* Beratung zur Gesundheit von Kindern
+* Beratung zu sexueller Gesundheit
+* Gesundheitsstatistik
+
+
+---
+
+## Behörden
+* Umständliche Prozesse
+* Für alles ist eine gesetzliche Grundlage nötig
+* Wenig Ressourcen (außer in Krisen dann zu viel)
+* Risikoavers
+* Politiknah
+
+---
+
+![Arbeit in der Behörde](behoerde.png)
+
+---
+
+![Mittlere Lebenserwartung in Landkreisen und kreisfreien Städten](armut.png)
+
+[2020 – 2022. Hoebel J im J Health Monit. doi: 10.25646/13003]{style="font-size: 60%;"}
+
+
+---
+
+## Konkret
+
+* [Tätigkeit in einem der Gesundheitsämter](https://www.berlin.de/sen/gesundheit/gesundheitswesen/gesundheitsaemter/)
+* [Postgraduierten Ausbildung angewandte Epidemiologie am RKI](https://rki.de/pae)
+* [Global Health am Zentrum für internationale Gesundheit](https://rki.de/zig)
+* [Course Infectious diesease Epidemiology am RKI](https://www.rki.de/EN/News/Events-and-dates/Event-series/Infectious-Disease-Epidemiology/rki-course-infectious-disease-epidemiology-node.html)
+* [Berlin School of Public Health](https://bsph.charite.de/)
+* [Pandemic-Hub der WHO in Berlin](https://pandemichub.who.int/)
+* [Nachwuchsnetzwerk öffentliche Gesundheit](https://noeg.org/)
+
+---
+
+## Vielen Dank! {.center style="text-align: center;"}
+
+![](qr_website.png){fig-align="center" height="480px"}
+
+[jakobschumacher.github.io/presentations]{style="font-size: 60%;"}

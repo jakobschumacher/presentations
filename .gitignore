@@ -8,3 +8,6 @@ Archiv/
 # Hugo
 /resources/_gen/
 .hugo_build.lock
+
+/.quarto/
+**/*.quarto_ipynb
