@@ -86,7 +86,7 @@ Berlin 1847 - Salomon Neumann
 
 ## Konkret
 
-* [Tätigkeit in einem der Gesundheitsämter](https://www.berlin.de/sen/gesundheit/gesundheitswesen/gesundheitsaemter/)
+* [Tätigkeit in einem der Gesundheitsämter in Berlin oder Brandenburg](https://tools.rki.de/plztool/)
 * [Postgraduierten Ausbildung angewandte Epidemiologie am RKI](https://rki.de/pae)
 * [Global Health am Zentrum für internationale Gesundheit](https://rki.de/zig)
 * [Course Infectious diesease Epidemiology am RKI](https://www.rki.de/EN/News/Events-and-dates/Event-series/Infectious-Disease-Epidemiology/rki-course-infectious-disease-epidemiology-node.html)
