@@ -69,3 +69,6 @@ publishDir = 'docs'
     codeFences = true
     guessSyntax = true
     lineNos = true
+
+[security]
+allowContent = ['.*']
